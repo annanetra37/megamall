@@ -256,8 +256,8 @@ footer{background:var(--black);padding:48px 80px;display:flex;align-items:center
 .fu.v{opacity:1;transform:translateY(0)}
 
 @media(max-width:1100px){
-  nav{padding:0 20px;height:76px;background:rgba(247,242,234,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(14,27,46,.08)}
-  nav.sc{background:rgba(247,242,234,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(14,27,46,.14)}
+  nav{padding:0 20px;height:76px;background:var(--cream);backdrop-filter:none;-webkit-backdrop-filter:none;border-bottom:1px solid rgba(14,27,46,.08);transition:border-color .3s}
+  nav.sc{background:var(--cream);border-bottom:1px solid rgba(14,27,46,.14)}
   .nl{gap:12px}
   .nl img{width:58px;height:50px}
   .nl-t .n1{color:var(--navy);font-size:15px}
@@ -665,7 +665,7 @@ const nav=document.getElementById('nav');
 window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>60));
 window.addEventListener('load',()=>document.getElementById('hbg').classList.add('go'));
 const fels=document.querySelectorAll('.fu');
-const ob=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')}),{threshold:.08});
+const ob=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');ob.unobserve(x.target);}}),{threshold:0,rootMargin:'0px 0px -60px 0px'});
 fels.forEach(el=>ob.observe(el));
 const cnts=document.querySelectorAll('.cnt');
 const co=new IntersectionObserver(e=>{e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target,t=parseInt(el.dataset.t),s=t/(1800/16);let c=0;const ti=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(ti);}el.textContent=Math.floor(c).toLocaleString();},16);co.unobserve(el);});},{threshold:.5});
