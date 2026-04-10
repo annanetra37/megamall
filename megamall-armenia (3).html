@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Megamall Armenia</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Space+Mono&family=Noto+Serif+Armenian:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#B5272F;--red-l:#E8454F;
+  --gold:#C9943A;--gold-l:#E8B86D;
+  --navy:#0E1B2E;--navy-m:#1A2E4A;
+  --cream:#F7F2EA;--cream-d:#EDE5D6;
+  --gray:#6B7280;--black:#080C12;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'Outfit',system-ui,sans-serif;
+  --fm:'Space Mono',monospace;
+  --fa:'Noto Serif Armenian',serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--cream);color:var(--black);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;background:transparent;transition:background .4s,backdrop-filter .4s,border-bottom .4s}
+nav.sc{background:rgba(8,12,18,.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,148,58,.2)}
+.nl{display:flex;align-items:center;gap:14px}
+.nl-t{display:flex;flex-direction:column;line-height:1.15}
+.nl-t .n1{font-family:var(--fd);font-size:18px;font-weight:600;color:white;letter-spacing:.03em}
+.nl-t .n2{font-family:var(--fa);font-size:10px;color:rgba(255,255,255,.45)}
+.nm{display:flex;gap:32px}
+.nm a{font-size:13px;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:.05em;text-transform:uppercase;transition:color .2s;position:relative}
+.nm a:hover{color:var(--gold-l)}
+.nm a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold-l);transform:scaleX(0);transition:transform .3s}
+.nm a:hover::after{transform:scaleX(1)}
+.nc{display:flex;align-items:center;gap:12px}
+.nc a{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:9px 20px;border-radius:6px;transition:all .2s}
+.nc .bg{color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.25)}
+.nc .bg:hover{border-color:var(--gold);color:var(--gold-l)}
+.nc .br{background:var(--red);color:white}
+.nc .br:hover{background:var(--red-l)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:700px;display:flex;align-items:flex-end;overflow:hidden}
+.hbg{position:absolute;inset:0;background:url('https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-02.jpg?fit=2250%2C1500&ssl=1') center 30%/cover;transform:scale(1.06);transition:transform 8s ease-out}
+.hbg.go{transform:scale(1)}
+.hov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,18,.93) 0%,rgba(8,12,18,.5) 50%,rgba(8,12,18,.15) 100%)}
+.hpat{position:absolute;top:0;right:0;bottom:0;width:40%;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L55 20v20L30 55 5 40V20z' fill='%23C9943A'/%3E%3C/svg%3E");background-size:60px 60px}
+.hc{position:relative;z-index:2;padding:0 80px 90px;max-width:820px}
+.hey{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.hey::before{content:'';flex:none;width:40px;height:1px;background:var(--gold)}
+.hey span{font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-l)}
+.htag{display:inline-flex;align-items:center;gap:8px;background:rgba(181,39,47,.85);color:white;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:4px}
+.hh1{font-family:var(--fd);font-weight:300;font-size:clamp(52px,7vw,96px);line-height:1;color:white;margin-bottom:8px;letter-spacing:-.01em}
+.hh1 em{font-style:italic;color:var(--gold-l)}
+.harm{font-family:var(--fa);font-size:clamp(14px,2vw,20px);color:rgba(255,255,255,.5);margin-bottom:28px;font-weight:300}
+.hdesc{font-size:16px;color:rgba(255,255,255,.7);line-height:1.7;max-width:520px;margin-bottom:36px;font-weight:300}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap}
+.bp{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:white;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:14px 28px;border-radius:7px;transition:all .25s}
+.bp:hover{background:var(--red-l);transform:translateY(-2px);box-shadow:0 8px 30px rgba(181,39,47,.4)}
+.bs{display:inline-flex;align-items:center;gap:8px;background:transparent;color:white;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:13px 28px;border-radius:7px;border:1px solid rgba(255,255,255,.3);transition:all .25s}
+.bs:hover{border-color:var(--gold);color:var(--gold-l);transform:translateY(-2px)}
+.hscr{position:absolute;bottom:30px;right:80px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.hscr span{font-family:var(--fm);font-size:10px;letter-spacing:.12em;color:rgba(255,255,255,.35);writing-mode:vertical-rl}
+.hscrl{width:1px;height:50px;background:linear-gradient(to bottom,rgba(255,255,255,.4),transparent);animation:sl 2s ease-in-out infinite}
+@keyframes sl{0%,100%{transform:scaleY(1);opacity:.5}50%{transform:scaleY(1.3);opacity:1}}
+
+/* STATS */
+.stats{background:var(--navy)}
+.si{display:grid;grid-template-columns:repeat(4,1fr)}
+.st{padding:36px 32px;border-right:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden;transition:background .3s}
+.st:last-child{border-right:none}
+.st:hover{background:rgba(201,148,58,.06)}
+.st::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--red),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.st:hover::before{transform:scaleX(1)}
+.sn{font-family:var(--fd);font-size:42px;font-weight:300;color:var(--gold-l);line-height:1;margin-bottom:4px}
+.sn sup{font-size:20px}
+.sl{font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.sd{font-size:11px;color:rgba(255,255,255,.22);margin-top:3px}
+
+/* SECTIONS */
+.sec{padding:100px 80px}
+.sec-dk{background:var(--navy)}
+.sec-cr{background:var(--cream)}
+.sec-wh{background:white}
+.sh{margin-bottom:56px}
+.ey{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.ey::before{content:'';width:32px;height:1px;background:var(--red);flex:none}
+.et{font-family:var(--fm);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.tt{font-family:var(--fd);font-size:clamp(36px,5vw,62px);font-weight:300;line-height:1.1;letter-spacing:-.01em}
+.tt-d{color:white}
+.tt-l{color:var(--navy)}
+.tsub{font-size:16px;color:var(--gray);line-height:1.7;margin-top:14px;max-width:560px;font-weight:300}
+.tsub-d{color:rgba(255,255,255,.48)}
+
+/* CATEGORIES */
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:3px}
+.cc{position:relative;overflow:hidden;aspect-ratio:4/3;cursor:pointer}
+.cc img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
+.cc:hover img{transform:scale(1.08)}
+.cov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,18,.88) 0%,rgba(8,12,18,.2) 60%,transparent 100%);transition:background .3s}
+.cc:hover .cov{background:linear-gradient(to top,rgba(181,39,47,.72) 0%,rgba(8,12,18,.3) 60%,transparent 100%)}
+.cn{position:absolute;bottom:0;left:0;right:0;padding:28px}
+.clb{display:inline-block;font-family:var(--fm);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-l);background:rgba(201,148,58,.18);border:1px solid rgba(201,148,58,.3);padding:3px 9px;border-radius:3px;margin-bottom:8px}
+.cname{font-family:var(--fd);font-size:26px;font-weight:400;color:white;line-height:1.1;margin-bottom:4px}
+.cct{font-size:12px;color:rgba(255,255,255,.52)}
+.carr{position:absolute;top:24px;right:24px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;color:white;font-size:14px;transform:translateX(10px);opacity:0;transition:all .3s}
+.cc:hover .carr{transform:translateX(0);opacity:1}
+
+/* GUINNESS */
+.gb{background:var(--navy);display:grid;grid-template-columns:1fr 1fr;min-height:520px;overflow:hidden}
+.gc{padding:80px;display:flex;flex-direction:column;justify-content:center}
+.gbdg{display:inline-flex;align-items:center;gap:10px;background:rgba(201,148,58,.15);border:1px solid rgba(201,148,58,.4);color:var(--gold-l);padding:8px 16px;border-radius:6px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:28px;width:fit-content}
+.gtt{font-family:var(--fd);font-size:52px;font-weight:300;color:white;line-height:1.1;margin-bottom:20px}
+.gtt em{color:var(--gold-l);font-style:italic}
+.gbdy{font-size:16px;color:rgba(255,255,255,.58);line-height:1.75;margin-bottom:32px;font-weight:300}
+.gi{position:relative;overflow:hidden}
+.gi img{width:100%;height:100%;object-fit:cover}
+.gi::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,var(--navy) 0%,transparent 30%)}
+
+/* BRIDGES */
+.bg3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bc{background:white;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
+.bc:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(0,0,0,.12)}
+.bi{height:220px;overflow:hidden;position:relative}
+.bi img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.bc:hover .bi img{transform:scale(1.06)}
+.bn{position:absolute;top:16px;left:16px;width:32px;height:32px;border-radius:50%;background:var(--red);color:white;font-family:var(--fm);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.bb{padding:24px}
+.btg{font-family:var(--fm);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.btt{font-family:var(--fd);font-size:24px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.bds{font-size:14px;color:var(--gray);line-height:1.65}
+
+/* ENT */
+.eg{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.ec{position:relative;overflow:hidden;min-height:480px;display:flex;align-items:flex-end;cursor:pointer}
+.ec img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94)}
+.ec:hover img{transform:scale(1.06)}
+.eov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,18,.92) 0%,transparent 60%)}
+.econ{position:relative;z-index:2;padding:40px}
+.ear{font-family:var(--fm);font-size:11px;letter-spacing:.1em;color:var(--gold-l);margin-bottom:8px;text-transform:uppercase}
+.ett{font-family:var(--fd);font-size:36px;font-weight:300;color:white;margin-bottom:10px;line-height:1.1}
+.eft{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.ef{font-size:11px;font-weight:500;letter-spacing:.04em;padding:4px 10px;border-radius:4px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.15)}
+.ecta{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:white;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:11px 22px;border-radius:6px;transition:all .25s}
+.ecta:hover{background:var(--red-l);transform:translateY(-2px)}
+
+/* STORES */
+.fbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.fb{font-size:12px;font-weight:500;letter-spacing:.04em;padding:8px 18px;border-radius:40px;border:1px solid rgba(0,0,0,.15);color:var(--gray);background:white;transition:all .2s;cursor:pointer}
+.fb:hover,.fb.ac{background:var(--navy);color:white;border-color:var(--navy)}
+.sbr{display:flex;align-items:center;gap:12px;background:white;border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:12px 18px;margin-bottom:24px;max-width:400px}
+.sbr input{border:none;outline:none;font-size:14px;font-family:var(--fb);color:var(--black);background:none;width:100%}
+.sbr input::placeholder{color:#D1C9BE}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
+.sc2{background:white;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s;cursor:pointer}
+.sc2:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.sc2.hid{display:none}
+.sim{height:150px;overflow:hidden;position:relative;background:var(--cream-d)}
+.sim img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.sc2:hover .sim img{transform:scale(1.08)}
+.sbg{position:absolute;top:10px;right:10px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+.bi2{background:var(--navy);color:white}
+.bl{background:var(--red);color:white}
+.sbd{padding:14px}
+.sct{font-family:var(--fm);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+.snm{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:3px;line-height:1.2}
+.sfl{font-size:11px;color:var(--gray)}
+#nores{display:none;text-align:center;padding:48px;color:var(--gray);font-size:15px;grid-column:1/-1}
+#cnt{font-size:13px;color:var(--gray);margin-bottom:20px}
+
+/* DINING */
+.dg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.dc{border-radius:16px;overflow:hidden;position:relative;min-height:300px;display:flex;align-items:flex-end;transition:transform .3s}
+.dc:hover{transform:translateY(-4px)}
+.dc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.dov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,18,.88) 0%,transparent 60%)}
+.dcon{position:relative;z-index:2;padding:24px}
+.dtp{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-l);margin-bottom:4px}
+.dnm{font-family:var(--fd);font-size:22px;font-weight:400;color:white}
+.drt{display:flex;align-items:center;gap:4px;margin-top:6px}
+.str{color:var(--gold);font-size:12px}
+.rv{font-size:12px;color:rgba(255,255,255,.65)}
+
+/* CULTURAL */
+.cult{background:var(--navy);padding:100px 0;overflow:hidden}
+.ci2{display:grid;grid-template-columns:1fr 1fr}
+.cim{position:relative;overflow:hidden;min-height:560px}
+.cim img{width:100%;height:100%;object-fit:cover}
+.cim::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 70%,var(--navy) 100%)}
+.cct2{padding:80px 80px 80px 60px;display:flex;flex-direction:column;justify-content:center}
+.ctt{font-family:var(--fd);font-size:52px;font-weight:300;color:white;line-height:1.1;margin-bottom:24px}
+.ctt em{color:var(--gold-l);font-style:italic}
+.cbdy{font-size:16px;color:rgba(255,255,255,.58);line-height:1.8;margin-bottom:16px;font-weight:300}
+.carm{font-family:var(--fa);font-size:13px;color:rgba(255,255,255,.28);font-style:italic;margin-top:16px}
+.aq{border-left:2px solid var(--gold);padding-left:20px;margin:20px 0;font-family:var(--fd);font-size:20px;font-style:italic;color:rgba(255,255,255,.72);line-height:1.5}
+
+/* INFO */
+.ig{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ic{background:white;border-radius:16px;padding:32px 24px;border:1px solid rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s}
+.ic:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.08)}
+.ibar{width:40px;height:4px;border-radius:2px;margin-bottom:20px}
+.ilb{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:6px}
+.iv{font-family:var(--fd);font-size:28px;font-weight:400;color:var(--navy);line-height:1.1;margin-bottom:4px}
+.ids{font-size:13px;color:var(--gray);line-height:1.5}
+
+/* EVENTS */
+.evr{display:grid;grid-template-columns:2fr 1fr;gap:20px}
+.em{position:relative;border-radius:20px;overflow:hidden;min-height:400px;display:flex;align-items:flex-end}
+.em img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.emov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,12,18,.9) 0%,transparent 60%)}
+.emc{position:relative;z-index:2;padding:36px}
+.edt{font-family:var(--fm);font-size:11px;color:var(--gold-l);letter-spacing:.1em;margin-bottom:8px;text-transform:uppercase}
+.etit{font-family:var(--fd);font-size:32px;font-weight:300;color:white;margin-bottom:12px}
+.esc{display:flex;flex-direction:column;gap:16px}
+.es{background:var(--navy-m);border-radius:16px;padding:24px;border:1px solid rgba(255,255,255,.06);flex:1;display:flex;flex-direction:column}
+.esd{font-family:var(--fm);font-size:10px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px}
+.est{font-family:var(--fd);font-size:20px;font-weight:400;color:white;margin-bottom:6px}
+.esl{font-size:12px;color:rgba(255,255,255,.38)}
+
+/* CONTACT */
+.cs{background:var(--navy);padding:80px}
+.cg2{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.cdrow{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+.cdi{width:40px;height:40px;border-radius:10px;background:rgba(201,148,58,.12);display:flex;align-items:center;justify-content:center;flex:none}
+.cdlb{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:3px}
+.cdv{font-size:15px;color:rgba(255,255,255,.78);line-height:1.5}
+.socr{display:flex;gap:12px;margin-top:32px}
+.sob{display:flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.65);font-size:12px;font-weight:500;transition:all .2s}
+.sob:hover{border-color:var(--gold);color:var(--gold-l)}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:8px}
+.fg input,.fg textarea,.fg select{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:13px 16px;color:white;font-size:14px;font-family:var(--fb);outline:none;transition:border-color .2s}
+.fg input:focus,.fg textarea:focus{border-color:var(--gold)}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.22)}
+.fg textarea{height:110px;resize:none}
+.fg select{color:rgba(255,255,255,.65)}
+.fr2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fsub{width:100%;background:var(--red);color:white;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:15px;border-radius:8px;transition:all .25s;font-family:var(--fb);cursor:pointer;border:none}
+.fsub:hover{background:var(--red-l);transform:translateY(-2px)}
+
+footer{background:var(--black);padding:48px 80px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.05)}
+.fnm{font-family:var(--fd);font-size:16px;font-weight:600;color:white}
+.farm{font-family:var(--fa);font-size:9px;color:rgba(255,255,255,.28);margin-top:2px}
+.fls{display:flex;gap:28px}
+.fls a{font-size:12px;color:rgba(255,255,255,.38);letter-spacing:.04em;transition:color .2s}
+.fls a:hover{color:var(--gold-l)}
+.fcp{font-size:11px;color:rgba(255,255,255,.22)}
+.div3{height:3px;background:linear-gradient(to right,var(--red) 0%,var(--gold) 50%,var(--red) 100%)}
+
+.fu{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s}
+.fu.v{opacity:1;transform:translateY(0)}
+
+@media(max-width:1100px){
+  nav{padding:0 24px}
+  .nm{display:none}
+  .sec{padding:64px 24px}
+  .si{grid-template-columns:repeat(2,1fr)}
+  .cg{grid-template-columns:repeat(2,1fr)}
+  .gb,.ci2,.cg2{grid-template-columns:1fr}
+  .gi{min-height:280px}
+  .cim{min-height:320px}
+  .ig{grid-template-columns:repeat(2,1fr)}
+  .eg{grid-template-columns:1fr}
+  .evr{grid-template-columns:1fr}
+  .fls{display:none}
+  .hc{padding:0 24px 64px}
+  .gc{padding:48px 32px}
+  .cct2{padding:40px 32px}
+  .cs{padding:48px 24px}
+  footer{padding:32px 24px}
+  .bg3{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nl">
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex:none;border-radius:10px">
+      <rect width="48" height="48" rx="10" fill="#B5272F"/>
+      <path d="M8 33V15L18 27L24 19L30 27L40 15V33" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <rect x="8" y="36.5" width="32" height="2.5" rx="1.25" fill="#C9943A"/>
+    </svg>
+    <div class="nl-t">
+      <span class="n1">Megamall Armenia</span>
+      <span class="n2">Մեգա Մոլ Արմենիա</span>
+    </div>
+  </div>
+  <div class="nm">
+    <a href="#stores">Stores</a>
+    <a href="#dining">Dining</a>
+    <a href="#entertainment">Entertainment</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nc">
+    <a href="tel:+37415777777" class="bg">+374 15 777777</a>
+    <a href="#contact" class="br">Visit Us</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hbg" id="hbg"></div>
+  <div class="hov"></div>
+  <div class="hpat"></div>
+  <div class="hc fu" style="transition-delay:.3s">
+    <div class="hey">
+      <div class="htag">Largest in the Caucasus</div>
+      <span>Yerevan, Armenia &middot; Since 2019</span>
+    </div>
+    <h1 class="hh1">Armenia's<br><em>Greatest</em> Mall.</h1>
+    <p class="harm">ԱմենաՄեծ Մոլը Հայաստանում &mdash; Մեծ, Ավելի Մեծ</p>
+    <p class="hdesc">89,000 m&sup2; of shopping, dining, and world-class entertainment in Nor Nork, Yerevan. Home to 100+ brands, the Guinness Record fountain, Magic Land, and Cinema Star.</p>
+    <div class="hbtns">
+      <a href="#stores" class="bp">Explore Stores</a>
+      <a href="https://maps.google.com/?q=Megamall+Armenia+Yerevan" target="_blank" class="bs">Get Directions</a>
+    </div>
+  </div>
+  <div class="hscr">
+    <div class="hscrl"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="si">
+    <div class="st"><div class="sn"><span class="cnt" data-t="89000">0</span> m&sup2;</div><div class="sl">Total Area</div><div class="sd">Comparable to an entire town</div></div>
+    <div class="st"><div class="sn"><span class="cnt" data-t="100">0</span><sup>+</sup></div><div class="sl">Brands</div><div class="sd">Local &amp; international</div></div>
+    <div class="st"><div class="sn"><span class="cnt" data-t="1800">0</span></div><div class="sl">Parking Spaces</div><div class="sd">3-level smart underground</div></div>
+    <div class="st"><div class="sn"><span class="cnt" data-t="9000">0</span> m&sup2;</div><div class="sl">Magic Land</div><div class="sd">Largest in the region</div></div>
+  </div>
+</div>
+
+<div style="padding:0">
+  <div class="cg">
+    <div class="cc"><img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-03.jpg?fit=1500%2C2250&ssl=1" alt="Fashion" loading="lazy"><div class="cov"></div><div class="cn"><div class="clb">20+ stores</div><div class="cname">Fashion</div><div class="cct">Levi's, LC Waikiki, New Yorker, Pull&amp;Bear</div></div><div class="carr">&#8594;</div></div>
+    <div class="cc"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop" alt="Dining" loading="lazy"><div class="cov"></div><div class="cn"><div class="clb">25 outlets</div><div class="cname">Dining</div><div class="cct">750-seat food court &middot; All world cuisines</div></div><div class="carr">&#8594;</div></div>
+    <div class="cc"><img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-04.jpg?fit=2250%2C1500&ssl=1" alt="Entertainment" loading="lazy"><div class="cov"></div><div class="cn"><div class="clb">9,000 m&sup2;</div><div class="cname">Entertainment</div><div class="cct">Magic Land &middot; Cinema Star &middot; Events</div></div><div class="carr">&#8594;</div></div>
+    <div class="cc"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&auto=format&fit=crop" alt="Beauty" loading="lazy"><div class="cov"></div><div class="cn"><div class="clb">14 stores</div><div class="cname">Beauty &amp; Wellness</div><div class="cct">Yves Rocher, NYX, Gold's Spa</div></div><div class="carr">&#8594;</div></div>
+    <div class="cc"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=800&auto=format&fit=crop" alt="Electronics" loading="lazy"><div class="cov"></div><div class="cn"><div class="clb">6 stores</div><div class="cname">Electronics</div><div class="cct">Vega &middot; U com &middot; Mobile Centre</div></div><div class="carr">&#8594;</div></div>
+    <div class="cc"><img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-06.jpg?fit=2250%2C1500&ssl=1" alt="Home" loading="lazy"><div class="cov"></div><div class="cn"><div class="clb">4 stores</div><div class="cname">Home &amp; Living</div><div class="cct">JYSK &middot; Muy Mucho &middot; Magus Home</div></div><div class="carr">&#8594;</div></div>
+  </div>
+</div>
+
+<div class="gb">
+  <div class="gc fu">
+    <div class="gbdg">Guinness World Record</div>
+    <h2 class="gtt">Armenia's Record-<em>Breaking</em> Fountain</h2>
+    <p class="gbdy">The moment you arrive, you are greeted by our legendary programmable digital fountain — a spectacle of LED lighting, water choreography, and holographic projections unlike anything in the region. It is not just a fountain. It is a landmark.</p>
+    <a href="#contact" class="bp" style="width:fit-content">Plan Your Visit</a>
+  </div>
+  <div class="gi">
+    <img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-02.jpg?fit=2250%2C1500&ssl=1" alt="Megamall interior">
+  </div>
+</div>
+
+<section class="sec sec-cr" id="about">
+  <div class="sh fu">
+    <div class="ey"><span class="et">Landmarks Inside</span></div>
+    <h2 class="tt tt-l">Three Bridges.<br>One <em style="font-style:italic;color:var(--red)">Soul.</em></h2>
+    <p class="tsub">Each bridge on Floor 2 is a uniquely designed cultural landmark.</p>
+  </div>
+  <div class="bg3 fu" style="transition-delay:.15s">
+    <div class="bc"><div class="bi"><img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-05.jpg?fit=1500%2C2250&ssl=1" alt="Dreams Bridge" loading="lazy"><div class="bn">01</div></div><div class="bb"><div class="btg">Floor 2 &middot; Dreams Bridge</div><div class="btt">Dreams Bridge</div><div class="bds">Located beside a cascading waterfall, the perfect spot for a wish, a date, or a quiet moment.</div></div></div>
+    <div class="bc"><div class="bi"><img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-04.jpg?fit=2250%2C1500&ssl=1" alt="Music Bridge" loading="lazy"><div class="bn">02</div></div><div class="bb"><div class="btg">Floor 2 &middot; Music Bridge</div><div class="btt">Music Bridge</div><div class="bds">The soft sounds of Armenia's greatest composers drift through this space. Live concerts are held here.</div></div></div>
+    <div class="bc"><div class="bi"><img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-08.jpg?fit=2250%2C1500&ssl=1" alt="Diaspora Bridge" loading="lazy"><div class="bn">03</div></div><div class="bb"><div class="btg">Floor 2 &middot; Diaspora Bridge</div><div class="btt">Diaspora Bridge</div><div class="bds">Walk across a mosaic world map with every major Armenian diaspora community marked in the floor.</div></div></div>
+  </div>
+</section>
+
+<div class="div3"></div>
+
+<section class="sec sec-dk" id="entertainment" style="padding-bottom:0">
+  <div class="sh fu">
+    <div class="ey"><span class="et" style="color:var(--gold)">Entertainment</span></div>
+    <h2 class="tt tt-d">Beyond Shopping.</h2>
+    <p class="tsub tsub-d">From Formula 1 go-karts to VIP cinema — a full-day destination for every age.</p>
+  </div>
+</section>
+<div class="eg fu">
+  <div class="ec"><img src="https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?w=1000&auto=format&fit=crop" alt="Magic Land" loading="lazy"><div class="eov"></div><div class="econ"><div class="ear">9,000 m&sup2; &middot; Armenia's Largest</div><div class="ett">Magic Land</div><div class="eft"><span class="ef">Formula 1 Go-Kart (1km)</span><span class="ef">Trampolines</span><span class="ef">LaserTag</span><span class="ef">OMNI VR</span><span class="ef">100+ Arcade Machines</span><span class="ef">Climbing Wall</span><span class="ef">Drift Cars</span></div><a href="https://www.facebook.com/magiclandarmenia" target="_blank" class="ecta">Book Tickets</a></div></div>
+  <div class="ec"><img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1000&auto=format&fit=crop" alt="Cinema Star" loading="lazy"><div class="eov"></div><div class="econ"><div class="ear">4 VIP Halls &middot; Premium Sound</div><div class="ett">Cinema Star</div><div class="eft"><span class="ef">VIP Seating</span><span class="ef">Dolby Sound</span><span class="ef">4K Projection</span><span class="ef">3 Standard Halls (175 seats)</span></div><a href="#" class="ecta">View Showtimes</a></div></div>
+</div>
+
+<section class="sec sec-cr" id="stores">
+  <div class="sh fu">
+    <div class="ey"><span class="et">100+ Brands</span></div>
+    <h2 class="tt tt-l">Our Stores</h2>
+    <p class="tsub">From international powerhouses to proud Armenian labels across 6 floors.</p>
+  </div>
+  <div class="sbr fu">
+    <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" id="ss" placeholder="Search any store..." oninput="af()">
+  </div>
+  <div class="fbar fu" style="transition-delay:.1s">
+    <button class="fb ac" onclick="fc(this,'all')">All</button>
+    <button class="fb" onclick="fc(this,'fashion')">Fashion</button>
+    <button class="fb" onclick="fc(this,'shoes')">Shoes</button>
+    <button class="fb" onclick="fc(this,'bags')">Bags</button>
+    <button class="fb" onclick="fc(this,'beauty')">Beauty</button>
+    <button class="fb" onclick="fc(this,'jewelry')">Jewelry</button>
+    <button class="fb" onclick="fc(this,'sports')">Sports</button>
+    <button class="fb" onclick="fc(this,'electronics')">Electronics</button>
+    <button class="fb" onclick="fc(this,'home')">Home</button>
+    <button class="fb" onclick="fc(this,'books')">Books</button>
+    <button class="fb" onclick="fc(this,'kids')">Kids</button>
+    <button class="fb" onclick="fc(this,'optics')">Optics</button>
+    <button class="fb" onclick="fc(this,'watches')">Watches</button>
+    <button class="fb" onclick="fc(this,'flowers')">Flowers</button>
+    <button class="fb" onclick="fc(this,'travel')">Travel</button>
+    <button class="fb" onclick="fc(this,'wellness')">Wellness</button>
+    <button class="fb" onclick="fc(this,'gifts')">Gifts</button>
+    <button class="fb" onclick="fc(this,'food')">Food &amp; Sweets</button>
+    <button class="fb" onclick="fc(this,'services')">Services</button>
+  </div>
+  <p id="cnt" class="fu" style="transition-delay:.15s">Loading...</p>
+  <div class="sgrid fu" id="sg" style="transition-delay:.2s">
+<div class="sc2" data-c="fashion" data-n="levi's"><div class="sim"><img src="https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=400&auto=format&fit=crop" alt="Levi's" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Levi's</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="new yorker"><div class="sim"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&auto=format&fit=crop" alt="New Yorker" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">New Yorker</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="lc waikiki"><div class="sim"><img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=400&auto=format&fit=crop" alt="LC Waikiki" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">LC Waikiki</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="fashion" data-n="pull & bear"><div class="sim"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&auto=format&fit=crop" alt="Pull & Bear" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Pull & Bear</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="jack & jones"><div class="sim"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format&fit=crop" alt="Jack & Jones" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Jack & Jones</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="celio"><div class="sim"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400&auto=format&fit=crop" alt="Celio" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Celio</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="fashion" data-n="u.s. polo assn"><div class="sim"><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=400&auto=format&fit=crop" alt="U.S. Polo Assn" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">U.S. Polo Assn</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="fashion" data-n="lime"><div class="sim"><img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&auto=format&fit=crop" alt="Lime" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Lime</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="fashion" data-n="zarina"><div class="sim"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&auto=format&fit=crop" alt="Zarina" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Zarina</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="fashion" data-n="funday"><div class="sim"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&auto=format&fit=crop" alt="FunDay" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">FunDay</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="roberto piraloff"><div class="sim"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format&fit=crop" alt="Roberto Piraloff" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Roberto Piraloff</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="o'stin"><div class="sim"><img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=400&auto=format&fit=crop" alt="O'stin" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">O'stin</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="fashion" data-n="penti"><div class="sim"><img src="https://images.unsplash.com/photo-1551803091-e20673f15770?w=400&auto=format&fit=crop" alt="Penti" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Penti</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="love republic"><div class="sim"><img src="https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=400&auto=format&fit=crop" alt="Love Republic" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Love Republic</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="persona"><div class="sim"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&auto=format&fit=crop" alt="Persona" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Persona</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="fashion" data-n="ordano"><div class="sim"><img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=400&auto=format&fit=crop" alt="Ordano" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Ordano</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="alex"><div class="sim"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop" alt="Alex" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Alex</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="elegànt"><div class="sim"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&auto=format&fit=crop" alt="Elegànt" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Elegànt</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="fashion" data-n="van cliff"><div class="sim"><img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&auto=format&fit=crop" alt="Van Cliff" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Van Cliff</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="fashion" data-n="springfield"><div class="sim"><img src="https://images.unsplash.com/photo-1571513722275-4b41940f54b8?w=400&auto=format&fit=crop" alt="Springfield" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Springfield</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="shoes" data-n="crocs"><div class="sim"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop" alt="Crocs" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Crocs</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="shoes" data-n="sali"><div class="sim"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=400&auto=format&fit=crop" alt="Sali" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Sali</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="shoes" data-n="baldi"><div class="sim"><img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&auto=format&fit=crop" alt="Baldi" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Baldi</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="shoes" data-n="skosh"><div class="sim"><img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&auto=format&fit=crop" alt="Skosh" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Skosh</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="shoes" data-n="scarpe multibrand"><div class="sim"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&auto=format&fit=crop" alt="Scarpe Multibrand" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Scarpe Multibrand</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="shoes" data-n="euro shoes"><div class="sim"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&auto=format&fit=crop" alt="Euro Shoes" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Euro Shoes</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="shoes" data-n="raf kanian"><div class="sim"><img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=400&auto=format&fit=crop" alt="Raf Kanian" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Raf Kanian</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="bags" data-n="sacvoyage"><div class="sim"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop" alt="SacVoyage" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">SacVoyage</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="bags" data-n="carpisa"><div class="sim"><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400&auto=format&fit=crop" alt="Carpisa" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">Carpisa</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="bags" data-n="lancaster"><div class="sim"><img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?w=400&auto=format&fit=crop" alt="Lancaster" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">Lancaster</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="bags" data-n="leather sv"><div class="sim"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format&fit=crop" alt="Leather SV" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">Leather SV</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="bags" data-n="beverly hills polo club"><div class="sim"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400&auto=format&fit=crop" alt="Beverly Hills Polo Club" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">Beverly Hills Polo Club</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="beauty" data-n="hermitage"><div class="sim"><img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&auto=format&fit=crop" alt="Hermitage" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Hermitage</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="mariann gray"><div class="sim"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&auto=format&fit=crop" alt="Mariann Gray" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Mariann Gray</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="yves rocher"><div class="sim"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&auto=format&fit=crop" alt="Yves Rocher" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Yves Rocher</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="nyx"><div class="sim"><img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=400&auto=format&fit=crop" alt="NYX" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">NYX</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="joffrey"><div class="sim"><img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=400&auto=format&fit=crop" alt="Joffrey" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Joffrey</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="mary parfum"><div class="sim"><img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&auto=format&fit=crop" alt="Mary Parfum" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Mary Parfum</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="bnatur"><div class="sim"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&auto=format&fit=crop" alt="Bnatur" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Bnatur</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="sixty"><div class="sim"><img src="https://images.unsplash.com/photo-1588514912908-b2d8c3f23c4e?w=400&auto=format&fit=crop" alt="Sixty" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Sixty</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="tovich"><div class="sim"><img src="https://images.unsplash.com/photo-1585732207355-f54d01ca00de?w=400&auto=format&fit=crop" alt="Tovich" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Tovich</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="alfadea"><div class="sim"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&auto=format&fit=crop" alt="AlfaDea" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">AlfaDea</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="viamina"><div class="sim"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&auto=format&fit=crop" alt="Viamina" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Viamina</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="beauty" data-n="adopt"><div class="sim"><img src="https://images.unsplash.com/photo-1505944357431-27579db47558?w=400&auto=format&fit=crop" alt="Adopt" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Adopt</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="routine"><div class="sim"><img src="https://images.unsplash.com/photo-1556228578-626d98bceb22?w=400&auto=format&fit=crop" alt="Routine" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Routine</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="beauty" data-n="skinbar"><div class="sim"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&auto=format&fit=crop" alt="SkinBar" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">SkinBar</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="beauty" data-n="jamharian"><div class="sim"><img src="https://images.unsplash.com/photo-1563804951879-8a75bf0c0ab9?w=400&auto=format&fit=crop" alt="Jamharian" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Jamharian</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="siamoods"><div class="sim"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&auto=format&fit=crop" alt="SiaMoods" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">SiaMoods</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="golden palace"><div class="sim"><img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&auto=format&fit=crop" alt="Golden Palace" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Golden Palace</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="murano"><div class="sim"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&auto=format&fit=crop" alt="Murano" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Murano</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="elnario"><div class="sim"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&auto=format&fit=crop" alt="Elnario" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Elnario</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="vardanyan's"><div class="sim"><img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&auto=format&fit=crop" alt="Vardanyan's" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Vardanyan's</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="vollmond"><div class="sim"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&auto=format&fit=crop" alt="Vollmond" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Vollmond</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="sirov"><div class="sim"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=400&auto=format&fit=crop" alt="Sirov" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Sirov</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="memuris"><div class="sim"><img src="https://images.unsplash.com/photo-1573408301185-9519f94815e3?w=400&auto=format&fit=crop" alt="Memuris" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Memuris</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="gardian"><div class="sim"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&auto=format&fit=crop" alt="Gardian" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Gardian</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="jewelry" data-n="gshop"><div class="sim"><img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=400&auto=format&fit=crop" alt="Gshop" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Gshop</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="sports" data-n="sportmaster"><div class="sim"><img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=400&auto=format&fit=crop" alt="Sportmaster" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Sports</div><div class="snm">Sportmaster</div><div class="sfl">Floor 4</div></div></div>
+<div class="sc2" data-c="sports" data-n="arka"><div class="sim"><img src="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?w=400&auto=format&fit=crop" alt="Arka" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Sports</div><div class="snm">Arka</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="sports" data-n="sportlandia"><div class="sim"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&auto=format&fit=crop" alt="Sportlandia" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Sports</div><div class="snm">Sportlandia</div><div class="sfl">Floor 4</div></div></div>
+<div class="sc2" data-c="electronics" data-n="vega"><div class="sim"><img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=400&auto=format&fit=crop" alt="Vega" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Vega</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="electronics" data-n="u com"><div class="sim"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&auto=format&fit=crop" alt="U com" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">U com</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="electronics" data-n="mobile centre"><div class="sim"><img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&auto=format&fit=crop" alt="Mobile Centre" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Mobile Centre</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="electronics" data-n="exclusive"><div class="sim"><img src="https://images.unsplash.com/photo-1544866092-1677b4a77f48?w=400&auto=format&fit=crop" alt="Exclusive" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Exclusive</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="electronics" data-n="mega mobile"><div class="sim"><img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=400&auto=format&fit=crop" alt="Mega Mobile" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Mega Mobile</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="electronics" data-n="chargers.am"><div class="sim"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop" alt="Chargers.am" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Chargers.am</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="home" data-n="jysk"><div class="sim"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop" alt="JYSK" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Home</div><div class="snm">JYSK</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="home" data-n="muy mucho"><div class="sim"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&auto=format&fit=crop" alt="Muy Mucho" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Home</div><div class="snm">Muy Mucho</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="home" data-n="magus home"><div class="sim"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&auto=format&fit=crop" alt="Magus Home" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Home</div><div class="snm">Magus Home</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="home" data-n="violet"><div class="sim"><img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=400&auto=format&fit=crop" alt="Violet" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Home</div><div class="snm">Violet</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="books" data-n="epigraph"><div class="sim"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&auto=format&fit=crop" alt="Epigraph" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Books</div><div class="snm">Epigraph</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="books" data-n="bookinist"><div class="sim"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&auto=format&fit=crop" alt="Bookinist" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Books</div><div class="snm">Bookinist</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="books" data-n="corporate library"><div class="sim"><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=400&auto=format&fit=crop" alt="Corporate Library" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Books</div><div class="snm">Corporate Library</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="kids" data-n="coccodrillo.am"><div class="sim"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&auto=format&fit=crop" alt="Coccodrillo.am" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">Coccodrillo.am</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="kids" data-n="cool club"><div class="sim"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&auto=format&fit=crop" alt="Cool Club" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">Cool Club</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="kids" data-n="fox"><div class="sim"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=400&auto=format&fit=crop" alt="Fox" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">Fox</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="kids" data-n="ovs kids"><div class="sim"><img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=400&auto=format&fit=crop" alt="OVS Kids" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">OVS Kids</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="kids" data-n="santoro"><div class="sim"><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&auto=format&fit=crop" alt="Santoro" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">Santoro</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="optics" data-n="berlin optic"><div class="sim"><img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&auto=format&fit=crop" alt="Berlin Optic" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Optics</div><div class="snm">Berlin Optic</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="optics" data-n="lumiere optics"><div class="sim"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&auto=format&fit=crop" alt="Lumiere Optics" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Optics</div><div class="snm">Lumiere Optics</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="optics" data-n="danz"><div class="sim"><img src="https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?w=400&auto=format&fit=crop" alt="Danz" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Optics</div><div class="snm">Danz</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="watches" data-n="ti'me"><div class="sim"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&auto=format&fit=crop" alt="Ti'me" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Watches</div><div class="snm">Ti'me</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="watches" data-n="novika"><div class="sim"><img src="https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=400&auto=format&fit=crop" alt="Novika" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Watches</div><div class="snm">Novika</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="flowers" data-n="orchid gallery"><div class="sim"><img src="https://images.unsplash.com/photo-1490750967868-88df5691cc30?w=400&auto=format&fit=crop" alt="Orchid Gallery" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Flowers</div><div class="snm">Orchid Gallery</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="flowers" data-n="avenue des fleurs"><div class="sim"><img src="https://images.unsplash.com/photo-1457238294100-50f0e29ea57b?w=400&auto=format&fit=crop" alt="Avenue Des Fleurs" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Flowers</div><div class="snm">Avenue Des Fleurs</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="flowers" data-n="dolce vita flowers"><div class="sim"><img src="https://images.unsplash.com/photo-1487530811015-780c879a4c84?w=400&auto=format&fit=crop" alt="Dolce Vita Flowers" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Flowers</div><div class="snm">Dolce Vita Flowers</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="flowers" data-n="caprice flowers"><div class="sim"><img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=400&auto=format&fit=crop" alt="Caprice Flowers" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Flowers</div><div class="snm">Caprice Flowers</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="travel" data-n="shelby"><div class="sim"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&auto=format&fit=crop" alt="Shelby" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Travel</div><div class="snm">Shelby</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="travel" data-n="akumb tour"><div class="sim"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&auto=format&fit=crop" alt="Akumb Tour" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Travel</div><div class="snm">Akumb Tour</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="travel" data-n="bright tour"><div class="sim"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&auto=format&fit=crop" alt="Bright Tour" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Travel</div><div class="snm">Bright Tour</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="wellness" data-n="gold's spa"><div class="sim"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&auto=format&fit=crop" alt="Gold's Spa" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Wellness</div><div class="snm">Gold's Spa</div><div class="sfl">Floor 5</div></div></div>
+<div class="sc2" data-c="wellness" data-n="sea of spa"><div class="sim"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&auto=format&fit=crop" alt="Sea of Spa" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Wellness</div><div class="snm">Sea of Spa</div><div class="sfl">Floor 4</div></div></div>
+<div class="sc2" data-c="wellness" data-n="zhest psych. center"><div class="sim"><img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=400&auto=format&fit=crop" alt="Zhest Psych. Center" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Wellness</div><div class="snm">Zhest Psych. Center</div><div class="sfl">Floor 4</div></div></div>
+<div class="sc2" data-c="gifts" data-n="woodwide"><div class="sim"><img src="https://images.unsplash.com/photo-1513201099705-a9746072f321?w=400&auto=format&fit=crop" alt="Woodwide" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Gifts</div><div class="snm">Woodwide</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="gifts" data-n="jpit.am"><div class="sim"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&auto=format&fit=crop" alt="Jpit.am" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Gifts</div><div class="snm">Jpit.am</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="gifts" data-n="miniso"><div class="sim"><img src="https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=400&auto=format&fit=crop" alt="Miniso" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Gifts</div><div class="snm">Miniso</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="food" data-n="cantata"><div class="sim"><img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&auto=format&fit=crop" alt="Cantata" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Cantata</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="food" data-n="gourmet dourme"><div class="sim"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=400&auto=format&fit=crop" alt="Gourmet Dourme" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Gourmet Dourme</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="food" data-n="dolcebox"><div class="sim"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&auto=format&fit=crop" alt="Dolcebox" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Dolcebox</div><div class="sfl">Food Court</div></div></div>
+<div class="sc2" data-c="food" data-n="givany wines"><div class="sim"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&auto=format&fit=crop" alt="Givany Wines" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Givany Wines</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="food" data-n="beer academy"><div class="sim"><img src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=400&auto=format&fit=crop" alt="Beer Academy" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Beer Academy</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="food" data-n="dargett brewpub"><div class="sim"><img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=400&auto=format&fit=crop" alt="Dargett Brewpub" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Dargett Brewpub</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="food" data-n="champagne wines factory"><div class="sim"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&auto=format&fit=crop" alt="Champagne Wines Factory" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Champagne Wines Factory</div><div class="sfl">Floor 2</div></div></div>
+<div class="sc2" data-c="services" data-n="yerevan city"><div class="sim"><img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?w=400&auto=format&fit=crop" alt="Yerevan City" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Yerevan City</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="services" data-n="cdek"><div class="sim"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&auto=format&fit=crop" alt="CDEK" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">CDEK</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="services" data-n="globbing"><div class="sim"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&auto=format&fit=crop" alt="Globbing" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Globbing</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="services" data-n="onex smart locker"><div class="sim"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&auto=format&fit=crop" alt="Onex Smart Locker" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Onex Smart Locker</div><div class="sfl">Floor 1</div></div></div>
+<div class="sc2" data-c="services" data-n="yerevan vape"><div class="sim"><img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400&auto=format&fit=crop" alt="Yerevan Vape" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Yerevan Vape</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="services" data-n="iqos store"><div class="sim"><img src="https://images.unsplash.com/photo-1574169207511-e21a21c8075a?w=400&auto=format&fit=crop" alt="IQOS Store" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">IQOS Store</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="services" data-n="just smoke"><div class="sim"><img src="https://images.unsplash.com/photo-1574169207511-e21a21c8075a?w=400&auto=format&fit=crop" alt="Just Smoke" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Just Smoke</div><div class="sfl">Floor 3</div></div></div>
+<div class="sc2" data-c="services" data-n="airsoft store"><div class="sim"><img src="https://images.unsplash.com/photo-1584208124894-8c96e7bb8f3a?w=400&auto=format&fit=crop" alt="Airsoft Store" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Airsoft Store</div><div class="sfl">Floor 4</div></div></div>
+<div class="sc2" data-c="services" data-n="orsis"><div class="sim"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&auto=format&fit=crop" alt="Orsis" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Orsis</div><div class="sfl">Floor 4</div></div></div>
+<div class="sc2" data-c="services" data-n="n&m auto accessories"><div class="sim"><img src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=400&auto=format&fit=crop" alt="N&M Auto Accessories" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">N&M Auto Accessories</div><div class="sfl">Floor 4</div></div></div>
+<div class="sc2" data-c="services" data-n="refeel station"><div class="sim"><img src="https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=400&auto=format&fit=crop" alt="ReFeel Station" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">ReFeel Station</div><div class="sfl">Multiple</div></div></div>
+
+    <div id="nores">No stores found matching your search.</div>
+  </div>
+</section>
+
+<section class="sec sec-dk" id="dining">
+  <div class="sh fu">
+    <div class="ey"><span class="et" style="color:var(--gold)">750 seats &middot; 25 outlets</span></div>
+    <h2 class="tt tt-d">Every Craving.<br><em style="font-style:italic;color:var(--gold-l)">One Roof.</em></h2>
+    <p class="tsub tsub-d">Armenian, European, Asian, and international fast food under one spectacular roof.</p>
+  </div>
+  <div class="dg fu">
+    <div class="dc"><img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&auto=format&fit=crop" alt="Burger King" loading="lazy"><div class="dov"></div><div class="dcon"><div class="dtp">Fast Food</div><div class="dnm">Burger King</div><div class="drt"><span class="str">&#9733;&#9733;&#9733;&#9733;</span><span class="rv">4.0 &middot; Food Court</span></div></div></div>
+    <div class="dc"><img src="https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?w=600&auto=format&fit=crop" alt="KFC" loading="lazy"><div class="dov"></div><div class="dcon"><div class="dtp">Fast Food</div><div class="dnm">KFC</div><div class="drt"><span class="str">&#9733;&#9733;&#9733;&#9733;</span><span class="rv">3.9 &middot; Food Court</span></div></div></div>
+    <div class="dc"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600&auto=format&fit=crop" alt="Pizza Hut" loading="lazy"><div class="dov"></div><div class="dcon"><div class="dtp">Pizzeria</div><div class="dnm">Pizza Hut</div><div class="drt"><span class="str">&#9733;&#9733;&#9733;&#9733;</span><span class="rv">4.2 &middot; Floor 2</span></div></div></div>
+    <div class="dc"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop" alt="InTempo" loading="lazy"><div class="dov"></div><div class="dcon"><div class="dtp" style="color:#FFD700">Top Rated</div><div class="dnm">InTempo Pizza &amp; More</div><div class="drt"><span class="str">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rv">4.8 &middot; Floor 2</span></div></div></div>
+    <div class="dc"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&auto=format&fit=crop" alt="Coffee House" loading="lazy"><div class="dov"></div><div class="dcon"><div class="dtp">Cafe</div><div class="dnm">Coffee House</div><div class="drt"><span class="str">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span class="rv">4.5 &middot; Floor 1</span></div></div></div>
+    <div class="dc"><img src="https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=600&auto=format&fit=crop" alt="Cinnabon" loading="lazy"><div class="dov"></div><div class="dcon"><div class="dtp">Bakery</div><div class="dnm">Cinnabon</div><div class="drt"><span class="str">&#9733;&#9733;&#9733;&#9733;</span><span class="rv">4.3 &middot; Food Court</span></div></div></div>
+  </div>
+</section>
+
+<section class="cult">
+  <div class="ci2">
+    <div class="cim"><img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-03.jpg?fit=1500%2C2250&ssl=1" alt="Cultural interior" loading="lazy"></div>
+    <div class="cct2 fu">
+      <div class="ey"><span class="et" style="color:var(--gold)">Where Culture Lives</span></div>
+      <h2 class="ctt">Armenia's Heart,<br><em>Beating</em> Inside.</h2>
+      <p class="cbdy">Megamall Armenia was designed to be more than a mall. The rich history and culture of Armenia is its central theme &mdash; from national colors and geometric patterns woven into every surface, to the legendary "Night" fresco by Minas Avetisyan (1973), restored by Italian specialists from Fabrizio Lacoboni's team.</p>
+      <div class="aq">"The design symbolizes the beauty, luxury and abundance of the Armenian land &mdash; filling local visitors with pride and arousing interest in tourists."</div>
+      <p class="carm">Մեգամոլ Արմենիա &mdash; Հայ մշակույթը ժամանակակից տիրույթում</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec-wh">
+  <div class="sh fu">
+    <div class="ey"><span class="et">Visitor Information</span></div>
+    <h2 class="tt tt-l">Everything You Need</h2>
+  </div>
+  <div class="ig fu">
+    <div class="ic"><div class="ibar" style="background:var(--red)"></div><div class="ilb">Parking</div><div class="iv">1,800 Cars</div><div class="ids">3-level smart underground. Validated with 3,000 AMD minimum purchase.</div></div>
+    <div class="ic"><div class="ibar" style="background:var(--gold)"></div><div class="ilb">Opening Hours</div><div class="iv">10:00 &ndash; 22:00</div><div class="ids">Open every day including weekends and public holidays.</div></div>
+    <div class="ic"><div class="ibar" style="background:var(--navy)"></div><div class="ilb">Banking &amp; ATMs</div><div class="iv">5 Banks</div><div class="ids">Araratbank &middot; Inecobank &middot; Ameriabank &middot; Ardshinbank &middot; HSBC</div></div>
+    <div class="ic"><div class="ibar" style="background:#16a34a"></div><div class="ilb">Accessibility</div><div class="iv">Full Access</div><div class="ids">Ramps, elevators, family restrooms, multilingual info desks on every floor.</div></div>
+  </div>
+</section>
+
+<section class="sec sec-dk">
+  <div class="sh fu">
+    <div class="ey"><span class="et" style="color:var(--gold)">Events &amp; Live Programming</span></div>
+    <h2 class="tt tt-d">Always Something<br><em style="font-style:italic;color:var(--gold-l)">Happening.</em></h2>
+  </div>
+  <div class="evr fu">
+    <div class="em"><img src="https://i0.wp.com/retail-design.pro/wp-content/uploads/2022/11/mega-mall-armenia-04.jpg?fit=2250%2C1500&ssl=1" alt="Live performance" loading="lazy"><div class="emov"></div><div class="emc"><div class="edt">Ongoing &middot; Music Bridge &middot; Floor 2</div><div class="etit">Live Concerts &amp; Performances</div><a href="#contact" class="bp" style="width:fit-content">View Calendar</a></div></div>
+    <div class="esc">
+      <div class="es"><div class="esd">Seasonal &middot; Main Atrium</div><div class="est">Art Exhibitions</div><div class="esl">Celebrating Armenian artists and culture</div></div>
+      <div class="es"><div class="esd">Monthly &middot; Fashion District</div><div class="est">Fashion Shows</div><div class="esl">International and local designer showcases</div></div>
+      <div class="es"><div class="esd">Year-Round &middot; All Floors</div><div class="est">Loyalty Program Draws</div><div class="esl">Win cars, appliances, and travel packages</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cs" id="contact">
+  <div class="cg2">
+    <div class="fu">
+      <h2 class="tt tt-d" style="margin-bottom:32px">Visit Us in<br><em style="font-style:italic;color:var(--gold-l)">Yerevan.</em></h2>
+      <div class="cdrow"><div class="cdi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9943A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><div class="cdlb">Address</div><div class="cdv">Nor Nork District, Gai Avenue 16<br>Yerevan, Armenia 0056</div></div></div>
+      <div class="cdrow"><div class="cdi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9943A" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><div class="cdlb">Phone</div><div class="cdv"><a href="tel:+37415777777" style="color:var(--gold-l)">+374 15 777777</a></div></div></div>
+      <div class="cdrow"><div class="cdi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9943A" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><div class="cdlb">Email</div><div class="cdv"><a href="mailto:info@megamallarmenia.am" style="color:var(--gold-l)">info@megamallarmenia.am</a></div></div></div>
+      <div class="cdrow"><div class="cdi"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C9943A" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><div class="cdlb">Hours</div><div class="cdv">Daily 10:00 &ndash; 22:00</div></div></div>
+      <div class="socr">
+        <a href="https://www.facebook.com/megamallarmenia/" target="_blank" class="sob">Facebook</a>
+        <a href="https://www.instagram.com/megamall_armenia/" target="_blank" class="sob">Instagram</a>
+      </div>
+      <div style="margin-top:32px;border-radius:14px;overflow:hidden;height:240px">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.2!2d44.566742!3d40.197140!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x406abd0b0dbb2d1f%3A0x99c3b893b9640!2sMegaMall%20Armenia!5e0!3m2!1sen!2s!4v1" width="100%" height="240" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+    <div class="fu" style="transition-delay:.15s">
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px">
+        <h3 style="font-family:var(--fd);font-size:28px;font-weight:300;color:white;margin-bottom:8px">Get in Touch</h3>
+        <p style="font-size:14px;color:rgba(255,255,255,.4);margin-bottom:28px">General inquiries, leasing, or partnerships</p>
+        <div class="fr2">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="Anna"></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="Mkrtchyan"></div>
+        </div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="you@example.com"></div>
+        <div class="fg"><label>Inquiry Type</label><select><option>General Visitor Question</option><option>Leasing / Tenancy</option><option>Events &amp; Partnerships</option><option>Media &amp; Press</option><option>Loyalty Program</option></select></div>
+        <div class="fg"><label>Message</label><textarea placeholder="Tell us how we can help..."></textarea></div>
+        <button class="fsub" id="sb">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex;align-items:center;gap:14px">
+    <svg width="36" height="36" viewBox="0 0 48 48" fill="none"><rect width="48" height="48" rx="10" fill="#B5272F"/><path d="M8 33V15L18 27L24 19L30 27L40 15V33" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="8" y="36.5" width="32" height="2.5" rx="1.25" fill="#C9943A"/></svg>
+    <div><div class="fnm">Megamall Armenia</div><div class="farm">Մեգա Մոլ Արմենիա</div></div>
+  </div>
+  <div class="fls">
+    <a href="#stores">Stores</a><a href="#dining">Dining</a><a href="#entertainment">Entertainment</a><a href="#about">About</a><a href="#contact">Contact</a>
+  </div>
+  <div class="fcp">&copy; 2025 Megamall Armenia &middot; Nor Nork, Yerevan</div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',scrollY>60));
+window.addEventListener('load',()=>document.getElementById('hbg').classList.add('go'));
+const fels=document.querySelectorAll('.fu');
+const ob=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('v')}),{threshold:.08});
+fels.forEach(el=>ob.observe(el));
+const cnts=document.querySelectorAll('.cnt');
+const co=new IntersectionObserver(e=>{e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target,t=parseInt(el.dataset.t),s=t/(1800/16);let c=0;const ti=setInterval(()=>{c+=s;if(c>=t){c=t;clearInterval(ti);}el.textContent=Math.floor(c).toLocaleString();},16);co.unobserve(el);});},{threshold:.5});
+cnts.forEach(c=>co.observe(c));
+let ac='all';
+function fc(btn,cat){document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac'));btn.classList.add('ac');ac=cat;af();}
+function af(){
+  const q=document.getElementById('ss').value.toLowerCase().trim();
+  const cards=document.querySelectorAll('#sg .sc2');
+  let vis=0;
+  cards.forEach(card=>{
+    const catOk=ac==='all'||card.dataset.c===ac;
+    const nameOk=!q||card.dataset.n.includes(q)||card.querySelector('.snm').textContent.toLowerCase().includes(q);
+    const show=catOk&&nameOk;
+    card.classList.toggle('hid',!show);
+    if(show)vis++;
+  });
+  document.getElementById('cnt').textContent='Showing '+vis+' of '+cards.length+' stores';
+  document.getElementById('nores').style.display=vis===0?'block':'none';
+}
+af();
+document.getElementById('sb').addEventListener('click',function(){this.textContent='Message Sent!';this.style.background='#16a34a';setTimeout(()=>{this.textContent='Send Message';this.style.background='';},3000);});
+</script>
+</body>
+</html>
