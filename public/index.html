@@ -83,7 +83,7 @@ nav.sc{background:rgba(10,10,12,.94);backdrop-filter:blur(20px);border-bottom:1p
 .sd{font-size:11px;color:rgba(255,255,255,.22);margin-top:3px}
 
 /* SECTIONS */
-.sec{padding:100px 80px}
+.sec{padding:100px 80px;scroll-margin-top:100px}
 .sec-dk{background:var(--navy)}
 .sec-cr{background:var(--cream)}
 .sec-wh{background:white}
@@ -150,28 +150,51 @@ nav.sc{background:rgba(10,10,12,.94);backdrop-filter:blur(20px);border-bottom:1p
 .ecta:hover{background:var(--red-l);transform:translateY(-2px)}
 
 /* STORES */
-.fbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
-.fb{font-size:12px;font-weight:500;letter-spacing:.04em;padding:8px 18px;border-radius:40px;border:1px solid rgba(0,0,0,.15);color:var(--gray);background:white;transition:all .2s;cursor:pointer}
-.fb:hover,.fb.ac{background:var(--navy);color:white;border-color:var(--navy)}
-.sbr{display:flex;align-items:center;gap:12px;background:white;border:1px solid rgba(0,0,0,.12);border-radius:10px;padding:12px 18px;margin-bottom:24px;max-width:400px}
-.sbr input{border:none;outline:none;font-size:14px;font-family:var(--fb);color:var(--black);background:none;width:100%}
-.sbr input::placeholder{color:#C9BFAA}
-.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px}
-.sc2{background:white;border-radius:14px;overflow:hidden;border:1px solid rgba(0,0,0,.06);transition:transform .25s,box-shadow .25s;cursor:pointer}
-.sc2:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
-.sc2.hid{display:none}
-.sim{height:150px;overflow:hidden;position:relative;background:var(--cream-d)}
-.sim img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
-.sc2:hover .sim img{transform:scale(1.08)}
-.sbg{position:absolute;top:10px;right:10px;font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
-.bi2{background:var(--navy);color:white}
-.bl{background:var(--red);color:white}
-.sbd{padding:14px}
-.sct{font-family:var(--fm);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
-.snm{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:3px;line-height:1.2}
-.sfl{font-size:11px;color:var(--gray)}
-#nores{display:none;text-align:center;padding:48px;color:var(--gray);font-size:15px;grid-column:1/-1}
-#cnt{font-size:13px;color:var(--gray);margin-bottom:20px}
+.sbr{display:flex;align-items:center;gap:12px;background:white;border:1px solid rgba(0,0,0,.12);border-radius:2px;padding:14px 20px;margin-bottom:40px;max-width:440px;transition:border-color .25s}
+.sbr:focus-within{border-color:var(--gold)}
+.sbr svg{color:var(--gray);flex:none}
+.sbr input{border:none;outline:none;font-size:14px;font-family:var(--fb);color:var(--black);background:none;width:100%;letter-spacing:.01em}
+.sbr input::placeholder{color:#C9BFAA;font-style:italic}
+
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.cat-card{position:relative;display:block;background:white;border:1px solid rgba(0,0,0,.05);border-radius:2px;overflow:hidden;cursor:pointer;transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s,border-color .3s;text-decoration:none;color:inherit}
+.cat-card:hover{transform:translateY(-6px);box-shadow:0 28px 60px -20px rgba(10,10,12,.22);border-color:rgba(184,146,90,.6)}
+.cat-img{position:relative;height:240px;overflow:hidden;background:linear-gradient(135deg,var(--cream-d),#D9CFB8)}
+.cat-img img{width:100%;height:100%;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.cat-card:hover .cat-img img{transform:scale(1.07)}
+.cat-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,12,.55) 0%,rgba(10,10,12,.1) 45%,transparent 70%);pointer-events:none}
+.cat-num{position:absolute;top:18px;left:20px;font-family:var(--fm);font-size:10px;letter-spacing:.22em;color:var(--gold-l);z-index:2}
+.cat-img-label{position:absolute;left:20px;bottom:18px;font-family:var(--fd);font-style:italic;font-size:13px;color:rgba(245,239,228,.7);z-index:2;letter-spacing:.02em}
+.img-fallback{display:flex;align-items:center;justify-content:center}
+.img-fallback .fb-text{font-family:var(--fd);font-style:italic;font-size:38px;color:rgba(20,19,24,.35);letter-spacing:.01em;text-align:center;padding:0 20px}
+.cat-meta{padding:24px 26px 26px;background:white;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.cat-meta-text{flex:1;min-width:0}
+.cat-name{font-family:var(--fd);font-size:26px;font-weight:400;color:var(--navy);letter-spacing:-.005em;line-height:1.1;margin-bottom:5px}
+.cat-cnt{font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray)}
+.cat-arrow{flex:none;width:38px;height:38px;border-radius:50%;border:1px solid rgba(20,19,24,.12);display:flex;align-items:center;justify-content:center;color:var(--navy);transition:all .35s cubic-bezier(.2,.7,.2,1)}
+.cat-card:hover .cat-arrow{background:var(--navy);color:var(--cream);border-color:var(--navy);transform:translateX(4px)}
+
+.back-btn{display:inline-flex;align-items:center;gap:12px;background:transparent;border:none;color:var(--gray);font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;padding:0;margin-bottom:32px;transition:color .2s;font-family:var(--fb)}
+.back-btn:hover{color:var(--navy)}
+.back-btn svg{transition:transform .25s}
+.back-btn:hover svg{transform:translateX(-4px)}
+.det-header{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:1px solid rgba(20,19,24,.1);padding-bottom:32px;margin-bottom:56px;flex-wrap:wrap;gap:24px}
+.det-num{font-family:var(--fm);font-size:10px;letter-spacing:.22em;color:var(--gold);margin-bottom:14px}
+.det-title{font-family:var(--fd);font-size:clamp(40px,5.5vw,64px);font-weight:300;color:var(--navy);line-height:1;letter-spacing:-.01em}
+.det-sub{font-family:var(--fm);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gray);padding-bottom:8px}
+.floor-section{margin-bottom:56px}
+.floor-section:last-child{margin-bottom:0}
+.floor-label{display:flex;align-items:center;gap:22px;font-family:var(--fd);font-size:24px;font-weight:400;color:var(--navy);font-style:italic;margin-bottom:22px}
+.floor-label::after{content:'';flex:1;height:1px;background:linear-gradient(to right,rgba(184,146,90,.45),transparent)}
+.floor-stores{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.store-pill{display:flex;align-items:center;justify-content:space-between;gap:14px;background:white;border:1px solid rgba(20,19,24,.06);border-radius:2px;padding:18px 22px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.store-pill:hover{border-color:rgba(184,146,90,.55);transform:translateX(4px);box-shadow:0 10px 30px -10px rgba(10,10,12,.12)}
+.store-name{font-size:14px;font-weight:500;color:var(--navy);letter-spacing:.005em;flex:1;min-width:0}
+.store-origin{font-family:var(--fm);font-size:8px;letter-spacing:.16em;text-transform:uppercase;padding:4px 9px;border-radius:1px;flex:none}
+.store-origin.intl{background:var(--navy);color:var(--cream)}
+.store-origin.local{background:transparent;color:var(--gold);border:1px solid rgba(184,146,90,.5)}
+.no-results{text-align:center;padding:64px 20px;color:var(--gray);font-family:var(--fd);font-size:20px;font-style:italic}
+
 
 /* DINING */
 .dg{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
@@ -411,151 +434,25 @@ footer{background:var(--black);padding:48px 80px;display:flex;align-items:center
   <div class="sh fu">
     <div class="ey"><span class="et">100+ Brands</span></div>
     <h2 class="tt tt-l">Our Stores</h2>
-    <p class="tsub">From international powerhouses to proud Armenian labels across 6 floors.</p>
+    <p class="tsub">From international powerhouses to proud Armenian labels &mdash; explore by category, then dive in floor by floor.</p>
   </div>
+
   <div class="sbr fu">
     <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-    <input type="text" id="ss" placeholder="Search any store..." oninput="af()">
+    <input type="text" id="ss" placeholder="Search for a store..." oninput="onSearch()" autocomplete="off">
   </div>
-  <div class="fbar fu" style="transition-delay:.1s">
-    <button class="fb ac" onclick="fc(this,'all')">All</button>
-    <button class="fb" onclick="fc(this,'fashion')">Fashion</button>
-    <button class="fb" onclick="fc(this,'shoes')">Shoes</button>
-    <button class="fb" onclick="fc(this,'bags')">Bags</button>
-    <button class="fb" onclick="fc(this,'beauty')">Beauty</button>
-    <button class="fb" onclick="fc(this,'jewelry')">Jewelry</button>
-    <button class="fb" onclick="fc(this,'sports')">Sports</button>
-    <button class="fb" onclick="fc(this,'electronics')">Electronics</button>
-    <button class="fb" onclick="fc(this,'home')">Home</button>
-    <button class="fb" onclick="fc(this,'books')">Books</button>
-    <button class="fb" onclick="fc(this,'kids')">Kids</button>
-    <button class="fb" onclick="fc(this,'optics')">Optics</button>
-    <button class="fb" onclick="fc(this,'watches')">Watches</button>
-    <button class="fb" onclick="fc(this,'flowers')">Flowers</button>
-    <button class="fb" onclick="fc(this,'travel')">Travel</button>
-    <button class="fb" onclick="fc(this,'wellness')">Wellness</button>
-    <button class="fb" onclick="fc(this,'gifts')">Gifts</button>
-    <button class="fb" onclick="fc(this,'food')">Food &amp; Sweets</button>
-    <button class="fb" onclick="fc(this,'services')">Services</button>
-  </div>
-  <p id="cnt" class="fu" style="transition-delay:.15s">Loading...</p>
-  <div class="sgrid fu" id="sg" style="transition-delay:.2s">
-<div class="sc2" data-c="fashion" data-n="levi's"><div class="sim"><img src="https://images.unsplash.com/photo-1551537482-f2075a1d41f2?w=400&auto=format&fit=crop" alt="Levi's" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Levi's</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="new yorker"><div class="sim"><img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=400&auto=format&fit=crop" alt="New Yorker" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">New Yorker</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="lc waikiki"><div class="sim"><img src="https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=400&auto=format&fit=crop" alt="LC Waikiki" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">LC Waikiki</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="fashion" data-n="pull & bear"><div class="sim"><img src="https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&auto=format&fit=crop" alt="Pull & Bear" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Pull & Bear</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="jack & jones"><div class="sim"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format&fit=crop" alt="Jack & Jones" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Jack & Jones</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="celio"><div class="sim"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400&auto=format&fit=crop" alt="Celio" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Celio</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="fashion" data-n="u.s. polo assn"><div class="sim"><img src="https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=400&auto=format&fit=crop" alt="U.S. Polo Assn" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">U.S. Polo Assn</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="fashion" data-n="lime"><div class="sim"><img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=400&auto=format&fit=crop" alt="Lime" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Lime</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="fashion" data-n="zarina"><div class="sim"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=400&auto=format&fit=crop" alt="Zarina" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Zarina</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="fashion" data-n="funday"><div class="sim"><img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&auto=format&fit=crop" alt="FunDay" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">FunDay</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="roberto piraloff"><div class="sim"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&auto=format&fit=crop" alt="Roberto Piraloff" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Roberto Piraloff</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="o'stin"><div class="sim"><img src="https://images.unsplash.com/photo-1523381294911-8d3cead13475?w=400&auto=format&fit=crop" alt="O'stin" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">O'stin</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="fashion" data-n="penti"><div class="sim"><img src="https://images.unsplash.com/photo-1551803091-e20673f15770?w=400&auto=format&fit=crop" alt="Penti" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Penti</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="love republic"><div class="sim"><img src="https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?w=400&auto=format&fit=crop" alt="Love Republic" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Love Republic</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="persona"><div class="sim"><img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=400&auto=format&fit=crop" alt="Persona" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Persona</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="fashion" data-n="ordano"><div class="sim"><img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=400&auto=format&fit=crop" alt="Ordano" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Ordano</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="alex"><div class="sim"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop" alt="Alex" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Alex</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="elegànt"><div class="sim"><img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?w=400&auto=format&fit=crop" alt="Elegànt" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Elegànt</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="fashion" data-n="van cliff"><div class="sim"><img src="https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&auto=format&fit=crop" alt="Van Cliff" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Van Cliff</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="fashion" data-n="springfield"><div class="sim"><img src="https://images.unsplash.com/photo-1571513722275-4b41940f54b8?w=400&auto=format&fit=crop" alt="Springfield" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Fashion</div><div class="snm">Springfield</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="shoes" data-n="crocs"><div class="sim"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&auto=format&fit=crop" alt="Crocs" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Crocs</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="shoes" data-n="sali"><div class="sim"><img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=400&auto=format&fit=crop" alt="Sali" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Sali</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="shoes" data-n="baldi"><div class="sim"><img src="https://images.unsplash.com/photo-1539185441755-769473a23570?w=400&auto=format&fit=crop" alt="Baldi" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Baldi</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="shoes" data-n="skosh"><div class="sim"><img src="https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&auto=format&fit=crop" alt="Skosh" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Skosh</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="shoes" data-n="scarpe multibrand"><div class="sim"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&auto=format&fit=crop" alt="Scarpe Multibrand" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Scarpe Multibrand</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="shoes" data-n="euro shoes"><div class="sim"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&auto=format&fit=crop" alt="Euro Shoes" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Euro Shoes</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="shoes" data-n="raf kanian"><div class="sim"><img src="https://images.unsplash.com/photo-1519415510236-718bdfcd89c8?w=400&auto=format&fit=crop" alt="Raf Kanian" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Shoes</div><div class="snm">Raf Kanian</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="bags" data-n="sacvoyage"><div class="sim"><img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&auto=format&fit=crop" alt="SacVoyage" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">SacVoyage</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="bags" data-n="carpisa"><div class="sim"><img src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=400&auto=format&fit=crop" alt="Carpisa" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">Carpisa</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="bags" data-n="lancaster"><div class="sim"><img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?w=400&auto=format&fit=crop" alt="Lancaster" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">Lancaster</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="bags" data-n="leather sv"><div class="sim"><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&auto=format&fit=crop" alt="Leather SV" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">Leather SV</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="bags" data-n="beverly hills polo club"><div class="sim"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?w=400&auto=format&fit=crop" alt="Beverly Hills Polo Club" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Bags</div><div class="snm">Beverly Hills Polo Club</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="beauty" data-n="hermitage"><div class="sim"><img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=400&auto=format&fit=crop" alt="Hermitage" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Hermitage</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="mariann gray"><div class="sim"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&auto=format&fit=crop" alt="Mariann Gray" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Mariann Gray</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="yves rocher"><div class="sim"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&auto=format&fit=crop" alt="Yves Rocher" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Yves Rocher</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="nyx"><div class="sim"><img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=400&auto=format&fit=crop" alt="NYX" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">NYX</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="joffrey"><div class="sim"><img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=400&auto=format&fit=crop" alt="Joffrey" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Joffrey</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="mary parfum"><div class="sim"><img src="https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&auto=format&fit=crop" alt="Mary Parfum" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Mary Parfum</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="bnatur"><div class="sim"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=400&auto=format&fit=crop" alt="Bnatur" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Bnatur</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="sixty"><div class="sim"><img src="https://images.unsplash.com/photo-1588514912908-b2d8c3f23c4e?w=400&auto=format&fit=crop" alt="Sixty" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Sixty</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="tovich"><div class="sim"><img src="https://images.unsplash.com/photo-1585732207355-f54d01ca00de?w=400&auto=format&fit=crop" alt="Tovich" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Tovich</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="alfadea"><div class="sim"><img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=400&auto=format&fit=crop" alt="AlfaDea" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">AlfaDea</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="viamina"><div class="sim"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&auto=format&fit=crop" alt="Viamina" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Viamina</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="beauty" data-n="adopt"><div class="sim"><img src="https://images.unsplash.com/photo-1505944357431-27579db47558?w=400&auto=format&fit=crop" alt="Adopt" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Adopt</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="routine"><div class="sim"><img src="https://images.unsplash.com/photo-1556228578-626d98bceb22?w=400&auto=format&fit=crop" alt="Routine" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Routine</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="beauty" data-n="skinbar"><div class="sim"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&auto=format&fit=crop" alt="SkinBar" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">SkinBar</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="beauty" data-n="jamharian"><div class="sim"><img src="https://images.unsplash.com/photo-1563804951879-8a75bf0c0ab9?w=400&auto=format&fit=crop" alt="Jamharian" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Beauty</div><div class="snm">Jamharian</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="siamoods"><div class="sim"><img src="https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&auto=format&fit=crop" alt="SiaMoods" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">SiaMoods</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="golden palace"><div class="sim"><img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&auto=format&fit=crop" alt="Golden Palace" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Golden Palace</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="murano"><div class="sim"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&auto=format&fit=crop" alt="Murano" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Murano</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="elnario"><div class="sim"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&auto=format&fit=crop" alt="Elnario" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Elnario</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="vardanyan's"><div class="sim"><img src="https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&auto=format&fit=crop" alt="Vardanyan's" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Vardanyan's</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="vollmond"><div class="sim"><img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&auto=format&fit=crop" alt="Vollmond" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Vollmond</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="sirov"><div class="sim"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=400&auto=format&fit=crop" alt="Sirov" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Sirov</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="memuris"><div class="sim"><img src="https://images.unsplash.com/photo-1573408301185-9519f94815e3?w=400&auto=format&fit=crop" alt="Memuris" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Memuris</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="gardian"><div class="sim"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&auto=format&fit=crop" alt="Gardian" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Gardian</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="jewelry" data-n="gshop"><div class="sim"><img src="https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=400&auto=format&fit=crop" alt="Gshop" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Jewelry</div><div class="snm">Gshop</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="sports" data-n="sportmaster"><div class="sim"><img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=400&auto=format&fit=crop" alt="Sportmaster" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Sports</div><div class="snm">Sportmaster</div><div class="sfl">Floor 4</div></div></div>
-<div class="sc2" data-c="sports" data-n="arka"><div class="sim"><img src="https://images.unsplash.com/photo-1518002054494-3a6f94352e9d?w=400&auto=format&fit=crop" alt="Arka" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Sports</div><div class="snm">Arka</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="sports" data-n="sportlandia"><div class="sim"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&auto=format&fit=crop" alt="Sportlandia" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Sports</div><div class="snm">Sportlandia</div><div class="sfl">Floor 4</div></div></div>
-<div class="sc2" data-c="electronics" data-n="vega"><div class="sim"><img src="https://images.unsplash.com/photo-1491933382434-500287f9b54b?w=400&auto=format&fit=crop" alt="Vega" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Vega</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="electronics" data-n="u com"><div class="sim"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&auto=format&fit=crop" alt="U com" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">U com</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="electronics" data-n="mobile centre"><div class="sim"><img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&auto=format&fit=crop" alt="Mobile Centre" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Mobile Centre</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="electronics" data-n="exclusive"><div class="sim"><img src="https://images.unsplash.com/photo-1544866092-1677b4a77f48?w=400&auto=format&fit=crop" alt="Exclusive" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Exclusive</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="electronics" data-n="mega mobile"><div class="sim"><img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=400&auto=format&fit=crop" alt="Mega Mobile" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Mega Mobile</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="electronics" data-n="chargers.am"><div class="sim"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&auto=format&fit=crop" alt="Chargers.am" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Electronics</div><div class="snm">Chargers.am</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="home" data-n="jysk"><div class="sim"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&auto=format&fit=crop" alt="JYSK" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Home</div><div class="snm">JYSK</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="home" data-n="muy mucho"><div class="sim"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&auto=format&fit=crop" alt="Muy Mucho" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Home</div><div class="snm">Muy Mucho</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="home" data-n="magus home"><div class="sim"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&auto=format&fit=crop" alt="Magus Home" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Home</div><div class="snm">Magus Home</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="home" data-n="violet"><div class="sim"><img src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?w=400&auto=format&fit=crop" alt="Violet" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Home</div><div class="snm">Violet</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="books" data-n="epigraph"><div class="sim"><img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?w=400&auto=format&fit=crop" alt="Epigraph" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Books</div><div class="snm">Epigraph</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="books" data-n="bookinist"><div class="sim"><img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&auto=format&fit=crop" alt="Bookinist" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Books</div><div class="snm">Bookinist</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="books" data-n="corporate library"><div class="sim"><img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=400&auto=format&fit=crop" alt="Corporate Library" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Books</div><div class="snm">Corporate Library</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="kids" data-n="coccodrillo.am"><div class="sim"><img src="https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&auto=format&fit=crop" alt="Coccodrillo.am" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">Coccodrillo.am</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="kids" data-n="cool club"><div class="sim"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&auto=format&fit=crop" alt="Cool Club" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">Cool Club</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="kids" data-n="fox"><div class="sim"><img src="https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=400&auto=format&fit=crop" alt="Fox" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">Fox</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="kids" data-n="ovs kids"><div class="sim"><img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=400&auto=format&fit=crop" alt="OVS Kids" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">OVS Kids</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="kids" data-n="santoro"><div class="sim"><img src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&auto=format&fit=crop" alt="Santoro" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Kids</div><div class="snm">Santoro</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="optics" data-n="berlin optic"><div class="sim"><img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=400&auto=format&fit=crop" alt="Berlin Optic" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Optics</div><div class="snm">Berlin Optic</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="optics" data-n="lumiere optics"><div class="sim"><img src="https://images.unsplash.com/photo-1508296695146-257a814070b4?w=400&auto=format&fit=crop" alt="Lumiere Optics" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Optics</div><div class="snm">Lumiere Optics</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="optics" data-n="danz"><div class="sim"><img src="https://images.unsplash.com/photo-1516054575922-f0b8eeadec1a?w=400&auto=format&fit=crop" alt="Danz" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Optics</div><div class="snm">Danz</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="watches" data-n="ti'me"><div class="sim"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&auto=format&fit=crop" alt="Ti'me" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Watches</div><div class="snm">Ti'me</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="watches" data-n="novika"><div class="sim"><img src="https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=400&auto=format&fit=crop" alt="Novika" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Watches</div><div class="snm">Novika</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="flowers" data-n="orchid gallery"><div class="sim"><img src="https://images.unsplash.com/photo-1490750967868-88df5691cc30?w=400&auto=format&fit=crop" alt="Orchid Gallery" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Flowers</div><div class="snm">Orchid Gallery</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="flowers" data-n="avenue des fleurs"><div class="sim"><img src="https://images.unsplash.com/photo-1457238294100-50f0e29ea57b?w=400&auto=format&fit=crop" alt="Avenue Des Fleurs" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Flowers</div><div class="snm">Avenue Des Fleurs</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="flowers" data-n="dolce vita flowers"><div class="sim"><img src="https://images.unsplash.com/photo-1487530811015-780c879a4c84?w=400&auto=format&fit=crop" alt="Dolce Vita Flowers" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Flowers</div><div class="snm">Dolce Vita Flowers</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="flowers" data-n="caprice flowers"><div class="sim"><img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?w=400&auto=format&fit=crop" alt="Caprice Flowers" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Flowers</div><div class="snm">Caprice Flowers</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="travel" data-n="shelby"><div class="sim"><img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400&auto=format&fit=crop" alt="Shelby" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Travel</div><div class="snm">Shelby</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="travel" data-n="akumb tour"><div class="sim"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=400&auto=format&fit=crop" alt="Akumb Tour" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Travel</div><div class="snm">Akumb Tour</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="travel" data-n="bright tour"><div class="sim"><img src="https://images.unsplash.com/photo-1488085061387-422e29b40080?w=400&auto=format&fit=crop" alt="Bright Tour" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Travel</div><div class="snm">Bright Tour</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="wellness" data-n="gold's spa"><div class="sim"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&auto=format&fit=crop" alt="Gold's Spa" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Wellness</div><div class="snm">Gold's Spa</div><div class="sfl">Floor 5</div></div></div>
-<div class="sc2" data-c="wellness" data-n="sea of spa"><div class="sim"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=400&auto=format&fit=crop" alt="Sea of Spa" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Wellness</div><div class="snm">Sea of Spa</div><div class="sfl">Floor 4</div></div></div>
-<div class="sc2" data-c="wellness" data-n="zhest psych. center"><div class="sim"><img src="https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=400&auto=format&fit=crop" alt="Zhest Psych. Center" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Wellness</div><div class="snm">Zhest Psych. Center</div><div class="sfl">Floor 4</div></div></div>
-<div class="sc2" data-c="gifts" data-n="woodwide"><div class="sim"><img src="https://images.unsplash.com/photo-1513201099705-a9746072f321?w=400&auto=format&fit=crop" alt="Woodwide" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Gifts</div><div class="snm">Woodwide</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="gifts" data-n="jpit.am"><div class="sim"><img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&auto=format&fit=crop" alt="Jpit.am" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Gifts</div><div class="snm">Jpit.am</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="gifts" data-n="miniso"><div class="sim"><img src="https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=400&auto=format&fit=crop" alt="Miniso" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Gifts</div><div class="snm">Miniso</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="food" data-n="cantata"><div class="sim"><img src="https://images.unsplash.com/photo-1571934811356-5cc061b6821f?w=400&auto=format&fit=crop" alt="Cantata" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Cantata</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="food" data-n="gourmet dourme"><div class="sim"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=400&auto=format&fit=crop" alt="Gourmet Dourme" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Gourmet Dourme</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="food" data-n="dolcebox"><div class="sim"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&auto=format&fit=crop" alt="Dolcebox" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Dolcebox</div><div class="sfl">Food Court</div></div></div>
-<div class="sc2" data-c="food" data-n="givany wines"><div class="sim"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&auto=format&fit=crop" alt="Givany Wines" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Givany Wines</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="food" data-n="beer academy"><div class="sim"><img src="https://images.unsplash.com/photo-1559526324-593bc073d938?w=400&auto=format&fit=crop" alt="Beer Academy" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Beer Academy</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="food" data-n="dargett brewpub"><div class="sim"><img src="https://images.unsplash.com/photo-1436076863939-06870fe779c2?w=400&auto=format&fit=crop" alt="Dargett Brewpub" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Dargett Brewpub</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="food" data-n="champagne wines factory"><div class="sim"><img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400&auto=format&fit=crop" alt="Champagne Wines Factory" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Food & Sweets</div><div class="snm">Champagne Wines Factory</div><div class="sfl">Floor 2</div></div></div>
-<div class="sc2" data-c="services" data-n="yerevan city"><div class="sim"><img src="https://images.unsplash.com/photo-1534452203293-494d7ddbf7e0?w=400&auto=format&fit=crop" alt="Yerevan City" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Yerevan City</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="services" data-n="cdek"><div class="sim"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&auto=format&fit=crop" alt="CDEK" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">CDEK</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="services" data-n="globbing"><div class="sim"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&auto=format&fit=crop" alt="Globbing" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Globbing</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="services" data-n="onex smart locker"><div class="sim"><img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=400&auto=format&fit=crop" alt="Onex Smart Locker" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Onex Smart Locker</div><div class="sfl">Floor 1</div></div></div>
-<div class="sc2" data-c="services" data-n="yerevan vape"><div class="sim"><img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?w=400&auto=format&fit=crop" alt="Yerevan Vape" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Yerevan Vape</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="services" data-n="iqos store"><div class="sim"><img src="https://images.unsplash.com/photo-1574169207511-e21a21c8075a?w=400&auto=format&fit=crop" alt="IQOS Store" loading="lazy"><span class="sbg bi2">International</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">IQOS Store</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="services" data-n="just smoke"><div class="sim"><img src="https://images.unsplash.com/photo-1574169207511-e21a21c8075a?w=400&auto=format&fit=crop" alt="Just Smoke" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Just Smoke</div><div class="sfl">Floor 3</div></div></div>
-<div class="sc2" data-c="services" data-n="airsoft store"><div class="sim"><img src="https://images.unsplash.com/photo-1584208124894-8c96e7bb8f3a?w=400&auto=format&fit=crop" alt="Airsoft Store" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Airsoft Store</div><div class="sfl">Floor 4</div></div></div>
-<div class="sc2" data-c="services" data-n="orsis"><div class="sim"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=400&auto=format&fit=crop" alt="Orsis" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">Orsis</div><div class="sfl">Floor 4</div></div></div>
-<div class="sc2" data-c="services" data-n="n&m auto accessories"><div class="sim"><img src="https://images.unsplash.com/photo-1493238792000-8113da705763?w=400&auto=format&fit=crop" alt="N&M Auto Accessories" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">N&M Auto Accessories</div><div class="sfl">Floor 4</div></div></div>
-<div class="sc2" data-c="services" data-n="refeel station"><div class="sim"><img src="https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=400&auto=format&fit=crop" alt="ReFeel Station" loading="lazy"><span class="sbg bl">Local</span></div><div class="sbd"><div class="sct">Services</div><div class="snm">ReFeel Station</div><div class="sfl">Multiple</div></div></div>
 
-    <div id="nores">No stores found matching your search.</div>
+  <div id="catview" class="fu" style="transition-delay:.15s">
+    <div class="cgrid"></div>
+  </div>
+
+  <div id="detview" hidden>
+    <button class="back-btn" type="button" onclick="showCategories()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      All Categories
+    </button>
+    <div class="det-header"></div>
+    <div class="floor-list"></div>
   </div>
 </section>
 
@@ -674,23 +571,261 @@ if(window.matchMedia('(max-width:1100px)').matches){
   const co=new IntersectionObserver(e=>{e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target,t=parseInt(el.dataset.t),dur=1500,start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-p,4);el.textContent=Math.floor(eased*t).toLocaleString();if(p<1)requestAnimationFrame(tick);else el.textContent=t.toLocaleString();}requestAnimationFrame(tick);co.unobserve(el);});},{threshold:.5});
   cnts.forEach(c=>co.observe(c));
 }
-let ac='all';
-function fc(btn,cat){document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac'));btn.classList.add('ac');ac=cat;af();}
-function af(){
-  const q=document.getElementById('ss').value.toLowerCase().trim();
-  const cards=document.querySelectorAll('#sg .sc2');
-  let vis=0;
-  cards.forEach(card=>{
-    const catOk=ac==='all'||card.dataset.c===ac;
-    const nameOk=!q||card.dataset.n.includes(q)||card.querySelector('.snm').textContent.toLowerCase().includes(q);
-    const show=catOk&&nameOk;
-    card.classList.toggle('hid',!show);
-    if(show)vis++;
-  });
-  document.getElementById('cnt').textContent='Showing '+vis+' of '+cards.length+' stores';
-  document.getElementById('nores').style.display=vis===0?'block':'none';
+/* ===== STORES: category grid + per-category floor view ===== */
+const CATEGORIES=[
+  {key:'fashion',     label:'Fashion',       img:'photo-1551537482-f2075a1d41f2'},
+  {key:'shoes',       label:'Shoes',         img:'photo-1542291026-7eec264c27ff'},
+  {key:'bags',        label:'Bags & Leather',img:'photo-1584917865442-de89df76afd3'},
+  {key:'beauty',      label:'Beauty',        img:'photo-1571781926291-c477ebfd024b'},
+  {key:'jewelry',     label:'Jewelry',       img:'photo-1515562141207-7a88fb7ce338'},
+  {key:'watches',     label:'Watches',       img:'photo-1523275335684-37898b6baf30'},
+  {key:'optics',      label:'Optics',        img:'photo-1574258495973-f010dfbb5371'},
+  {key:'sports',      label:'Sports',        img:'photo-1593079831268-3381b0db4a77'},
+  {key:'electronics', label:'Electronics',   img:'photo-1491933382434-500287f9b54b'},
+  {key:'home',        label:'Home',          img:'photo-1555041469-a586c61ea9bc'},
+  {key:'books',       label:'Books',         img:'photo-1512820790803-83ca734da794'},
+  {key:'kids',        label:'Kids',          img:'photo-1515488042361-ee00e0ddd4e4'},
+  {key:'flowers',     label:'Flowers',       img:'photo-1490750967868-88df5691cc30'},
+  {key:'food',        label:'Food & Sweets', img:'photo-1571934811356-5cc061b6821f'},
+  {key:'gifts',       label:'Gifts',         img:'photo-1513201099705-a9746072f321'},
+  {key:'wellness',    label:'Wellness',      img:'photo-1544161515-4ab6ce6db874'},
+  {key:'travel',      label:'Travel',        img:'photo-1476514525535-07fb3b4ae5f1'},
+  {key:'services',    label:'Services',      img:'photo-1534452203293-494d7ddbf7e0'},
+];
+const STORES=[
+  ['fashion',"Levi's",'Floor 2','intl'],
+  ['fashion',"New Yorker",'Floor 2','intl'],
+  ['fashion',"LC Waikiki",'Floor 1','intl'],
+  ['fashion',"Pull & Bear",'Floor 2','intl'],
+  ['fashion',"Jack & Jones",'Floor 2','intl'],
+  ['fashion',"Celio",'Floor 3','intl'],
+  ['fashion',"U.S. Polo Assn",'Floor 1','intl'],
+  ['fashion',"Lime",'Floor 1','local'],
+  ['fashion',"Zarina",'Floor 1','intl'],
+  ['fashion',"FunDay",'Floor 2','local'],
+  ['fashion',"Roberto Piraloff",'Floor 2','local'],
+  ['fashion',"O'stin",'Floor 1','intl'],
+  ['fashion',"Penti",'Floor 2','intl'],
+  ['fashion',"Love Republic",'Floor 2','intl'],
+  ['fashion',"Persona",'Floor 3','local'],
+  ['fashion',"Ordano",'Floor 2','local'],
+  ['fashion',"Alex",'Floor 2','local'],
+  ['fashion',"Elegànt",'Floor 3','local'],
+  ['fashion',"Van Cliff",'Floor 2','local'],
+  ['fashion',"Springfield",'Floor 2','intl'],
+  ['shoes',"Crocs",'Floor 2','intl'],
+  ['shoes',"Sali",'Floor 2','local'],
+  ['shoes',"Baldi",'Floor 1','intl'],
+  ['shoes',"Skosh",'Floor 1','local'],
+  ['shoes',"Scarpe Multibrand",'Floor 2','local'],
+  ['shoes',"Euro Shoes",'Floor 1','local'],
+  ['shoes',"Raf Kanian",'Floor 2','local'],
+  ['bags',"SacVoyage",'Floor 2','local'],
+  ['bags',"Carpisa",'Floor 2','intl'],
+  ['bags',"Lancaster",'Floor 2','intl'],
+  ['bags',"Leather SV",'Floor 3','local'],
+  ['bags',"Beverly Hills Polo Club",'Floor 2','intl'],
+  ['beauty',"Hermitage",'Floor 1','local'],
+  ['beauty',"Mariann Gray",'Floor 1','local'],
+  ['beauty',"Yves Rocher",'Floor 1','intl'],
+  ['beauty',"NYX",'Floor 1','intl'],
+  ['beauty',"Joffrey",'Floor 1','local'],
+  ['beauty',"Mary Parfum",'Floor 1','local'],
+  ['beauty',"Bnatur",'Floor 1','local'],
+  ['beauty',"Sixty",'Floor 1','intl'],
+  ['beauty',"Tovich",'Floor 1','local'],
+  ['beauty',"AlfaDea",'Floor 1','local'],
+  ['beauty',"Viamina",'Floor 2','local'],
+  ['beauty',"Adopt",'Floor 1','intl'],
+  ['beauty',"Routine",'Floor 1','local'],
+  ['beauty',"SkinBar",'Floor 2','local'],
+  ['beauty',"Jamharian",'Floor 1','local'],
+  ['jewelry',"SiaMoods",'Floor 3','local'],
+  ['jewelry',"Golden Palace",'Floor 1','local'],
+  ['jewelry',"Murano",'Floor 2','local'],
+  ['jewelry',"Elnario",'Floor 3','local'],
+  ['jewelry',"Vardanyan's",'Floor 2','local'],
+  ['jewelry',"Vollmond",'Floor 2','local'],
+  ['jewelry',"Sirov",'Floor 3','local'],
+  ['jewelry',"Memuris",'Floor 2','local'],
+  ['jewelry',"Gardian",'Floor 2','local'],
+  ['jewelry',"Gshop",'Floor 1','local'],
+  ['sports',"Sportmaster",'Floor 4','intl'],
+  ['sports',"Arka",'Floor 3','local'],
+  ['sports',"Sportlandia",'Floor 4','local'],
+  ['electronics',"Vega",'Floor 1','local'],
+  ['electronics',"U com",'Floor 1','local'],
+  ['electronics',"Mobile Centre",'Floor 1','local'],
+  ['electronics',"Exclusive",'Floor 1','local'],
+  ['electronics',"Mega Mobile",'Floor 1','local'],
+  ['electronics',"Chargers.am",'Floor 1','local'],
+  ['home',"JYSK",'Floor 3','intl'],
+  ['home',"Muy Mucho",'Floor 3','intl'],
+  ['home',"Magus Home",'Floor 3','local'],
+  ['home',"Violet",'Floor 3','local'],
+  ['books',"Epigraph",'Floor 2','local'],
+  ['books',"Bookinist",'Floor 2','local'],
+  ['books',"Corporate Library",'Floor 2','local'],
+  ['kids',"Coccodrillo.am",'Floor 2','intl'],
+  ['kids',"Cool Club",'Floor 2','intl'],
+  ['kids',"Fox",'Floor 2','intl'],
+  ['kids',"OVS Kids",'Floor 2','intl'],
+  ['kids',"Santoro",'Floor 2','intl'],
+  ['optics',"Berlin Optic",'Floor 1','local'],
+  ['optics',"Lumiere Optics",'Floor 2','local'],
+  ['optics',"Danz",'Floor 1','local'],
+  ['watches',"Ti'me",'Floor 2','local'],
+  ['watches',"Novika",'Floor 2','local'],
+  ['flowers',"Orchid Gallery",'Floor 1','local'],
+  ['flowers',"Avenue Des Fleurs",'Floor 1','local'],
+  ['flowers',"Dolce Vita Flowers",'Floor 1','local'],
+  ['flowers',"Caprice Flowers",'Floor 2','local'],
+  ['travel',"Shelby",'Floor 3','local'],
+  ['travel',"Akumb Tour",'Floor 3','local'],
+  ['travel',"Bright Tour",'Floor 3','local'],
+  ['wellness',"Gold's Spa",'Floor 5','local'],
+  ['wellness',"Sea of Spa",'Floor 4','local'],
+  ['wellness',"Zhest Psych. Center",'Floor 4','local'],
+  ['gifts',"Woodwide",'Floor 2','local'],
+  ['gifts',"Jpit.am",'Floor 2','local'],
+  ['gifts',"Miniso",'Floor 1','intl'],
+  ['food',"Cantata",'Floor 1','local'],
+  ['food',"Gourmet Dourme",'Floor 1','local'],
+  ['food',"Dolcebox",'Food Court','local'],
+  ['food',"Givany Wines",'Floor 2','local'],
+  ['food',"Beer Academy",'Floor 2','local'],
+  ['food',"Dargett Brewpub",'Floor 2','local'],
+  ['food',"Champagne Wines Factory",'Floor 2','local'],
+  ['services',"Yerevan City",'Floor 1','local'],
+  ['services',"CDEK",'Floor 1','intl'],
+  ['services',"Globbing",'Floor 1','local'],
+  ['services',"Onex Smart Locker",'Floor 1','local'],
+  ['services',"Yerevan Vape",'Floor 3','local'],
+  ['services',"IQOS Store",'Floor 3','intl'],
+  ['services',"Just Smoke",'Floor 3','local'],
+  ['services',"Airsoft Store",'Floor 4','local'],
+  ['services',"Orsis",'Floor 4','local'],
+  ['services',"N&M Auto Accessories",'Floor 4','local'],
+  ['services',"ReFeel Station",'Multiple','local'],
+];
+const CAT_LABEL=Object.fromEntries(CATEGORIES.map(c=>[c.key,c.label]));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const imgUrl=id=>'https://images.unsplash.com/'+id+'?w=720&auto=format&fit=crop&q=80';
+function catImgFallback(img,label){const wrap=img.parentElement;img.remove();wrap.classList.add('img-fallback');const d=document.createElement('div');d.className='fb-text';d.textContent=label;wrap.appendChild(d);}
+function renderCategoryGrid(){
+  const counts={};STORES.forEach(s=>counts[s[0]]=(counts[s[0]]||0)+1);
+  const grid=document.querySelector('#catview .cgrid');
+  grid.innerHTML=CATEGORIES.map((cat,i)=>`
+    <a href="#stores/${cat.key}" class="cat-card" data-c="${cat.key}">
+      <div class="cat-img">
+        <img src="${imgUrl(cat.img)}" alt="${esc(cat.label)}" loading="lazy" onerror="catImgFallback(this,'${esc(cat.label)}')">
+        <span class="cat-num">${String(i+1).padStart(2,'0')} / ${String(CATEGORIES.length).padStart(2,'0')}</span>
+        <span class="cat-img-label">${counts[cat.key]||0} stores</span>
+      </div>
+      <div class="cat-meta">
+        <div class="cat-meta-text">
+          <div class="cat-name">${esc(cat.label)}</div>
+          <div class="cat-cnt">Discover the collection</div>
+        </div>
+        <div class="cat-arrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></div>
+      </div>
+    </a>
+  `).join('');
 }
-af();
+function floorSort(a,b){const ma=a.match(/\d+/),mb=b.match(/\d+/);if(ma&&mb)return +ma[0]-+mb[0];if(ma)return -1;if(mb)return 1;return a.localeCompare(b);}
+function renderFloorList(container,stores){
+  const byFloor={};stores.forEach(s=>{(byFloor[s[2]]=byFloor[s[2]]||[]).push(s);});
+  const floors=Object.keys(byFloor).sort(floorSort);
+  container.innerHTML=floors.map(f=>`
+    <div class="floor-section">
+      <h4 class="floor-label">${esc(f)}</h4>
+      <div class="floor-stores">
+        ${byFloor[f].map(s=>`
+          <div class="store-pill">
+            <div class="store-name">${esc(s[1])}</div>
+            <span class="store-origin ${s[3]}">${s[3]==='intl'?'International':'Local'}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+function renderDetail(catKey){
+  const cat=CATEGORIES.find(c=>c.key===catKey);
+  if(!cat){showCategories();return;}
+  const stores=STORES.filter(s=>s[0]===catKey);
+  const idx=CATEGORIES.indexOf(cat)+1;
+  document.querySelector('#detview .det-header').innerHTML=`
+    <div>
+      <div class="det-num">${String(idx).padStart(2,'0')} / ${String(CATEGORIES.length).padStart(2,'0')}</div>
+      <h3 class="det-title">${esc(cat.label)}</h3>
+    </div>
+    <div class="det-sub">${stores.length} Stores</div>
+  `;
+  renderFloorList(document.querySelector('#detview .floor-list'),stores);
+  document.getElementById('catview').hidden=true;
+  document.getElementById('detview').hidden=false;
+  document.getElementById('stores').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function showCategories(){
+  document.getElementById('detview').hidden=true;
+  document.getElementById('catview').hidden=false;
+  document.getElementById('ss').value='';
+  if(location.hash.startsWith('#stores/')){history.pushState(null,'','#stores');}
+}
+function renderSearch(q){
+  const matches=STORES.filter(s=>s[1].toLowerCase().includes(q));
+  const detview=document.getElementById('detview');
+  document.querySelector('#detview .det-header').innerHTML=`
+    <div>
+      <div class="det-num">Search</div>
+      <h3 class="det-title" style="font-style:italic">&ldquo;${esc(q)}&rdquo;</h3>
+    </div>
+    <div class="det-sub">${matches.length} Result${matches.length===1?'':'s'}</div>
+  `;
+  const list=document.querySelector('#detview .floor-list');
+  if(matches.length===0){
+    list.innerHTML='<div class="no-results">No stores match your search.</div>';
+  }else{
+    const byCat={};matches.forEach(s=>{(byCat[s[0]]=byCat[s[0]]||[]).push(s);});
+    list.innerHTML=Object.keys(byCat).map(k=>`
+      <div class="floor-section">
+        <h4 class="floor-label">${esc(CAT_LABEL[k]||k)}</h4>
+        <div class="floor-stores">
+          ${byCat[k].map(s=>`
+            <div class="store-pill">
+              <div class="store-name">${esc(s[1])}</div>
+              <span class="store-origin ${s[3]}">${s[3]==='intl'?'International':'Local'} &middot; ${esc(s[2])}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `).join('');
+  }
+  document.getElementById('catview').hidden=true;
+  detview.hidden=false;
+}
+let searchT;
+function onSearch(){
+  const q=document.getElementById('ss').value.toLowerCase().trim();
+  clearTimeout(searchT);
+  searchT=setTimeout(()=>{
+    if(!q){
+      if(location.hash.startsWith('#stores/')){renderDetail(location.hash.split('/')[1]);}
+      else{document.getElementById('detview').hidden=true;document.getElementById('catview').hidden=false;}
+      return;
+    }
+    renderSearch(q);
+  },120);
+}
+function handleStoresHash(){
+  if(document.getElementById('ss').value.trim())return;
+  if(location.hash.startsWith('#stores/')){renderDetail(decodeURIComponent(location.hash.split('/')[1]));}
+  else{document.getElementById('detview').hidden=true;document.getElementById('catview').hidden=false;}
+}
+window.addEventListener('hashchange',handleStoresHash);
+renderCategoryGrid();
+handleStoresHash();
 document.getElementById('sb').addEventListener('click',function(){this.textContent='Message Sent!';this.style.background='#16a34a';setTimeout(()=>{this.textContent='Send Message';this.style.background='';},3000);});
 </script>
 </body>
