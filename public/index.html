@@ -668,8 +668,12 @@ const fels=document.querySelectorAll('.fu');
 const ob=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');ob.unobserve(x.target);}}),{threshold:0,rootMargin:'0px 0px -60px 0px'});
 fels.forEach(el=>ob.observe(el));
 const cnts=document.querySelectorAll('.cnt');
-const co=new IntersectionObserver(e=>{e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target,t=parseInt(el.dataset.t),dur=1500,start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-p,4);el.textContent=Math.floor(eased*t).toLocaleString();if(p<1)requestAnimationFrame(tick);else el.textContent=t.toLocaleString();}requestAnimationFrame(tick);co.unobserve(el);});},{threshold:.5});
-cnts.forEach(c=>co.observe(c));
+if(window.matchMedia('(max-width:1100px)').matches){
+  cnts.forEach(c=>c.textContent=parseInt(c.dataset.t).toLocaleString());
+}else{
+  const co=new IntersectionObserver(e=>{e.forEach(x=>{if(!x.isIntersecting)return;const el=x.target,t=parseInt(el.dataset.t),dur=1500,start=performance.now();function tick(now){const p=Math.min((now-start)/dur,1);const eased=1-Math.pow(1-p,4);el.textContent=Math.floor(eased*t).toLocaleString();if(p<1)requestAnimationFrame(tick);else el.textContent=t.toLocaleString();}requestAnimationFrame(tick);co.unobserve(el);});},{threshold:.5});
+  cnts.forEach(c=>co.observe(c));
+}
 let ac='all';
 function fc(btn,cat){document.querySelectorAll('.fb').forEach(b=>b.classList.remove('ac'));btn.classList.add('ac');ac=cat;af();}
 function af(){
